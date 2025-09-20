@@ -3,6 +3,7 @@ import { IBM_Plex_Mono } from "next/font/google"
 import Script from "next/script"
 import Link from "next/link"
 import { Sparkles } from "lucide-react"
+import Image from "next/image";
 
 const ibmMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -57,8 +58,16 @@ export default function AboutPage() {
           ],
         })}
       </Script>
-      {/* Background vignette / gradient */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(80%_60%_at_50%_120%,rgba(244,63,94,0.18)_0%,rgba(244,63,94,0.06)_35%,transparent_70%)]" />
+      {/* Background Image */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <Image
+          src="https://storage.googleapis.com/aip-dev-sandbox-b91c9.appspot.com/public/bg-about.png"
+          alt="About page background"
+          layout="fill"
+          objectFit="cover"
+          data-ai-hint="night sky"
+        />
+      </div>
 
       <section className="mx-auto w-full max-w-5xl px-6 py-14 sm:px-8 sm:py-16 md:py-20">
         {/* Page label + Home breadcrumb */}
