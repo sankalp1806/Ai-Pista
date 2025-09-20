@@ -495,7 +495,7 @@ export default function Home() {
                     <CustomModels compact />
                     <ThemeToggle compact />
                     <Settings compact />
-                    <GithubStar owner="sankalp1806" repo="" />
+                    <GithubStar owner="sankalp1806" repo="Ai-Pista" />
                   </div>
                 )}
               </div>
@@ -506,7 +506,7 @@ export default function Home() {
                 onOpenMenu={() => setMobileSidebarOpen(true)}
                 title="Ai Pista"
                 githubOwner="sankalp1806"
-                githubRepo=""
+                githubRepo="Ai-Pista"
                 onOpenModelsModal={() => setModelsModalOpen(true)}
                 className="-mr-3 sm:mr-0"
               />
@@ -594,5 +594,3 @@ export default function Home() {
     </div>
   );
 }
-
-
