@@ -87,7 +87,7 @@ export default function StartupSprintLanding() {
     <>
     <div
       className="min-h-screen text-white relative overflow-hidden bg-cover bg-center bg-no-repeat overflow-x-hidden no-scrollbar"
-      style={{backgroundImage: "url('/Purple Space image.png')"}}
+      style={{backgroundImage: "url('/Space-Image.png')"}}
     >
 
       {/* Navbar */}
@@ -132,10 +132,12 @@ export default function StartupSprintLanding() {
             <div className="flex flex-col items-center gap-3 mt-8 w-64">
               <Link
                 href="/compare"
-                className="inline-flex w-full items-center justify-center px-6 py-3 rounded-full font-semibold tracking-wide bg-red-600 text-white hover:bg-red-500 transition-colors shadow"
+                className="glowing-btn"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Compare Models
+                <span className="glowing-txt">
+                  Start <span className="faulty-letter">C</span>hat
+                </span>
               </Link>
             </div>
           </div>
@@ -163,9 +165,11 @@ export default function StartupSprintLanding() {
           <div className="mt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2 w-full">
             <Link
               href="/compare"
-              className="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[170px] px-6 py-3 rounded-full font-semibold tracking-wide bg-red-600 text-white hover:bg-red-500 transition-colors shadow"
+              className="glowing-btn"
             >
-              Start Chat
+               <span className="glowing-txt">
+                  Start <span className="faulty-letter">C</span>hat
+                </span>
             </Link>
           </div>
         </div>

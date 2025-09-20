@@ -61,8 +61,8 @@ export default function AboutPage() {
       {/* Background Image */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <Image
-          src="/Purple Space image.png"
-          alt="Purple space background"
+          src="/Space-Image.png"
+          alt="Space background"
           layout="fill"
           objectFit="cover"
           data-ai-hint="purple space"
