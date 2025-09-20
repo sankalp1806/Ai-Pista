@@ -155,6 +155,16 @@ export default function StartupSprintLanding() {
       {/* Hero Section */}
       <div className="flex flex-col items-center justify-center min-h-[90vh] px-6 relative z-20">
 
+        {/* Backed by Sankalp badge */}
+        <div className="mb-6 flex items-center justify-center">
+          <div className="bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-3 border border-white/20">
+            <span className="text-white/80 text-sm font-medium">Backed by</span>
+            <div className="flex items-center gap-2">
+              <span className="text-white font-semibold text-sm">Sankalp</span>
+            </div>
+          </div>
+        </div>
+
         {/* Main Heading */}
         <div className="text-center mb-8 ">
           <h1 className="text-3xl md:text-8xl font-semibold tracking-tight text-white mb-2">Why Choose Only 6 AI</h1>
@@ -212,16 +222,6 @@ export default function StartupSprintLanding() {
           >
             <img src="https://i.postimg.cc/1XRcSWrf/icons8-github-1500.png" className="w-5 h-5 " />
           </a>
-        </div>
-
-        {/* Backed by Runable badge */}
-        <div className="mt-6 flex items-center justify-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-3 border border-white/20">
-            <span className="text-white/80 text-sm font-medium">Backed by</span>
-            <div className="flex items-center gap-2">
-              <span className="text-white font-semibold text-sm">Sankalp</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
