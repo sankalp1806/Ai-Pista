@@ -90,7 +90,7 @@ export default function StartupSprintLanding() {
     >
 
       {/* Navbar */}
-      <nav className="flex items-center justify-between px-6 pt-7 relative max-w-7xl mx-auto z-10">
+      <nav className="flex items-center justify-between px-6 pt-7 relative max-w-7xl mx-auto z-20">
         <div className="flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/Web_logo.svg" alt="Ai Pista" className="h-10 md:h-12 lg:h-14 w-auto" />
