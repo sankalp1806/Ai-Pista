@@ -1,3 +1,4 @@
+md
 # AI Pista
 
 <video controls poster="./public/osfiesta.png" width="800">
@@ -363,4 +364,3 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 ## Acknowledgements
 
 - Model access via OpenRouter and Google
-

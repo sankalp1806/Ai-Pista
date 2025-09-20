@@ -66,7 +66,7 @@ const AnimatedPlaceholder = ({ showSearch }: { showSearch: boolean }) => (
       transition={{ duration: 0.1 }}
       className="pointer-events-none w-[150px] text-sm absolute text-black/70 dark:text-white/70"
     >
-      {showSearch ? 'Search the web...' : 'Ask Skiper Ai...'}
+      {showSearch ? 'Search the web...' : 'Ask Ai Pista...'}
     </motion.p>
   </AnimatePresence>
 );

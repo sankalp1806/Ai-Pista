@@ -13,7 +13,7 @@ const ibmMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "About — Ai Pista",
   description:
-    "Learn about Ai Pista, the AI chat that lets you compare 300+ models in one place. Built by Niladri Hazra.",
+    "Learn about Ai Pista, the AI chat that lets you compare 300+ models in one place. Built by Sankalp Sharma.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About — Ai Pista",
@@ -87,9 +87,9 @@ export default function AboutPage() {
         <div className="my-10 h-px w-full bg-gradient-to-r from-transparent via-zinc-700/40 to-transparent" />
 
         {/* Founder */}
-        <h2 className="text-[11px] tracking-[0.22em] uppercase text-zinc-400 mb-3">Built by Niladri Hazra</h2>
+        <h2 className="text-[11px] tracking-[0.22em] uppercase text-zinc-400 mb-3">Built by Sankalp Sharma</h2>
         <p className="text-zinc-300/90 text-sm sm:text-base leading-relaxed max-w-3xl mb-4">
-          Hi, I’m Niladri. I’m building Ai Pista to make multi‑model workflows simple and fast.
+          Hi, I’m Sankalp. I’m building Ai Pista to make multi‑model workflows simple and fast.
           Follow along on X and GitHub, and feel free to reach out.
         </p>
 
@@ -153,7 +153,7 @@ export default function AboutPage() {
             </div>
             <div>
               <p className="text-zinc-200 mb-1">Who built Ai Pista?</p>
-              <p>Ai Pista is built by Niladri Hazra. See the contact links above or our <a className="underline decoration-zinc-600 hover:decoration-zinc-400" href="/press">Press</a> page.</p>
+              <p>Ai Pista is built by Sankalp Sharma. See the contact links above or our <a className="underline decoration-zinc-600 hover:decoration-zinc-400" href="/press">Press</a> page.</p>
             </div>
           </div>
         </div>
@@ -187,7 +187,7 @@ export default function AboutPage() {
               {
                 "@type": "Question",
                 name: "Who built Ai Pista?",
-                acceptedAnswer: { "@type": "Answer", text: "Ai Pista is built by Niladri Hazra. See the contact links on the About page or the Press page for more." }
+                acceptedAnswer: { "@type": "Answer", text: "Ai Pista is built by Sankalp Sharma. See the contact links on the About page or the Press page for more." }
               }
             ]
           })}

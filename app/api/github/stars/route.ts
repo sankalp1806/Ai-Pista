@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
 
-// GET /api/github/stars?owner=NiladriHazra&repo=Ai-Pista
+// GET /api/github/stars?owner=sankalp1806&repo=Ai-Pista
 export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
-    const owner = searchParams.get('owner') || 'NiladriHazra';
+    const owner = searchParams.get('owner') || 'sankalp1806';
     const repo = searchParams.get('repo') || 'Ai-Pista';
 
     const token = process.env.GITHUB_TOKEN;
@@ -31,4 +31,3 @@ export async function GET(req: Request) {
     return NextResponse.json({ ok: false }, { status: 200 });
   }
 }
-

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 async function getContributors(): Promise<Contributor[]> {
     try {
         const response = await fetch(
-            "https://api.github.com/repos/NiladriHazra/Ai-Pista/contributors",
+            "https://api.github.com/repos/sankalp1806/Ai-Pista/contributors",
             {
                 headers: {
                     Accept: "application/vnd.github.v3+json",
@@ -67,7 +67,7 @@ export default async function Contributors() {
                     <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-12 px-6 pt-2">
                         <div className="flex flex-col items-center justify-center gap-4 text-center">
                             <div className="flex items-center justify-center gap-6 text-sm text-white/90">
-                                <Link href={"https://github.com/NiladriHazra/Ai-Pista"} target="_blank" rel="noopener noreferrer">
+                                <Link href={"https://github.com/sankalp1806/Ai-Pista"} target="_blank" rel="noopener noreferrer">
                                     <Badge variant="secondary" className="gap-2 mb-6 p-[6px]">
                                         <GithubIcon className="h-3 w-3" />
                                         Open Source
@@ -191,7 +191,7 @@ export default async function Contributors() {
                     <div className="flex gap-4">
                         <Button asChild variant="default" size="lg">
                             <Link
-                                href="https://github.com/NiladriHazra/Ai-Pista"
+                                href="https://github.com/sankalp1806/Ai-Pista"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -201,7 +201,7 @@ export default async function Contributors() {
                         </Button>
                         <Button asChild variant="secondary" size="lg">
                             <Link
-                                href="https://github.com/NiladriHazra/Ai-Pista/issues"
+                                href="https://github.com/sankalp1806/Ai-Pista/issues"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -215,4 +215,3 @@ export default async function Contributors() {
         </>
     );
 }
-

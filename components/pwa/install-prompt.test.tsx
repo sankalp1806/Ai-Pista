@@ -34,7 +34,7 @@ describe('InstallPrompt', () => {
       beforeInstallPromptHandler(mockBeforeInstallPromptEvent);
     }
 
-    expect(screen.getByText('Install AI Pista')).toBeInTheDocument();
+    expect(screen.getByText('Install Ai Pista')).toBeInTheDocument();
     expect(screen.getByText('Get the app experience')).toBeInTheDocument();
     expect(screen.getByText('Faster loading')).toBeInTheDocument();
     expect(screen.getByText('Works offline')).toBeInTheDocument();
@@ -85,7 +85,7 @@ describe('InstallPrompt', () => {
     
     render(<InstallPrompt />);
     
-    expect(screen.queryByText('Install AI Pista')).not.toBeInTheDocument();
+    expect(screen.queryByText('Install Ai Pista')).not.toBeInTheDocument();
   });
 
   it('should show loading state during installation', async () => {

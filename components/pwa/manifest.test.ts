@@ -157,4 +157,3 @@ describe('Browser Configuration', () => {
     expect(browserconfigContent).toContain('<TileColor>#000000</TileColor>');
   });
 });
-

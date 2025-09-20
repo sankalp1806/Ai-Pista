@@ -113,10 +113,10 @@ export const metadata: Metadata = {
     "evaluate AI answer quality",
     "AI productivity tool",
     // Brand
-    "Niladri Hazra",
+    "Sankalp Sharma",
   ].join(", "),
-  authors: [{ name: "Niladri Hazra", url: "https://github.com/NiladriHazra" }],
-  creator: "Niladri Hazra",
+  authors: [{ name: "Sankalp Sharma", url: "https://github.com/sankalp1806" }],
+  creator: "Sankalp Sharma",
   publisher: "AI Pista",
   robots: {
     index: true,
@@ -305,8 +305,8 @@ export default function RootLayout({
             },
             author: {
               "@type": "Person",
-              name: "Niladri Hazra",
-              url: "https://github.com/NiladriHazra"
+              name: "Sankalp Sharma",
+              url: "https://github.com/sankalp1806"
             },
             inLanguage: "en-US",
             isAccessibleForFree: true,
@@ -318,4 +318,3 @@ export default function RootLayout({
     </html>
   )
 }
-

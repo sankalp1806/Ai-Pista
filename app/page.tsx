@@ -6,6 +6,7 @@ import GithubStar from '@/components/app/GithubStar'
 import SupportDropdown from '@/components/support-dropdown'
 import { Menu, X } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
+import { Testimonials } from '@/components/testimonials/Testimonials'
 import { CustomCrowd } from '@/components/Footer'
 // import { Instagram, Twitter, Linkedin, Menu, X } from "lucide-react"
 
@@ -102,7 +103,7 @@ export default function StartupSprintLanding() {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <GithubStar owner="NiladriHazra" repo="AI-Pista" theme="dark" />
+          <GithubStar owner="sankalp1806" repo="AI-Pista" theme="dark" />
           <SupportDropdown inline theme={'dark'} />
         </div>
 
@@ -193,11 +194,11 @@ export default function StartupSprintLanding() {
             href="https://x.com/byteHumi"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Niladri on X"
+            aria-label="Sankalp on X"
             className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white/20 hover:ring-white/30 transition-all"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/image.png" alt="Niladri" className="w-full h-full object-cover" />
+            <img src="/image.png" alt="Sankalp" className="w-full h-full object-cover" />
           </a>
 
           {/* Social icons */}
