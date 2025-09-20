@@ -380,32 +380,22 @@ export default function Home() {
             threads={visibleThreads}
             activeId={activeId}
             onSelectThread={(id) => setActiveId(id)}
-            onNewChat={async () => {
-              if (!user?.id) return;
-              try {
-                const created = await createThreadDb({
-                  userId: user.id,
-                  title: 'New Chat',
-                  projectId: activeProjectId || null,
-                  pageType: 'compare',
-                  initialMessage: null,
-                });
-                setThreads((prev) => [created, ...prev]);
-                setActiveId(created.id);
-              } catch (e) {
-                console.warn('Failed to create compare thread:', e);
-              }
+            onNewChat={() => {
+              const newThread: ChatThread = {
+                id: safeUUID(),
+                title: 'New Chat',
+                messages: [],
+                createdAt: Date.now(),
+                projectId: activeProjectId,
+                pageType: 'compare',
+              };
+              setThreads((prev) => [newThread, ...prev]);
+              setActiveId(newThread.id);
             }}
             mobileSidebarOpen={mobileSidebarOpen}
             onCloseMobile={() => setMobileSidebarOpen(false)}
             onOpenMobile={() => setMobileSidebarOpen(true)}
             onDeleteThread={async (id) => {
-              if (!user?.id) return;
-              try {
-                await deleteThreadDb(user.id, id);
-              } catch (e) {
-                console.warn('Failed to delete compare thread in DB, removing locally:', e);
-              }
               setThreads((prev) => {
                 const next = prev.filter((t) => t.id !== id);
                 if (activeId === id) {
@@ -417,6 +407,13 @@ export default function Home() {
                 }
                 return next;
               });
+              if (user?.id) {
+                try {
+                  await deleteThreadDb(user.id, id);
+                } catch (e) {
+                  console.warn('Failed to delete compare thread in DB:', e);
+                }
+              }
             }}
             selectedModels={selectedModels}
             // Projects (from main)
