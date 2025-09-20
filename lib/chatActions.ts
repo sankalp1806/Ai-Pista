@@ -810,7 +810,7 @@ export function createChatActions({
         } finally {
           delete abortControllers[m.id];
           // Skip internal loading - using ChatInterface loading animation instead
-          // setLoadingIds((prev) => prev.filter((x) => x !== m.id));
+          // setLoadingIds(prev => prev.filter(x => x !== m.id));
         }
       }),
     );

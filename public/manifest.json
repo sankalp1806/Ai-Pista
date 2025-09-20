@@ -1,7 +1,7 @@
 {
-  "name": "Ai Pista - AI Chat Platform",
-  "short_name": "Ai Pista",
-  "description": "A powerful AI chat platform supporting multiple models with offline capabilities",
+  "name": "AI Pista - AI Chat Platform",
+  "short_name": "AI Pista",
+  "description": "An open-source, multi-model AI chat playground.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
@@ -9,8 +9,6 @@
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en",
-  "categories": ["productivity", "utilities", "education"],
-  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/icons/icon-72x72.svg",
@@ -31,7 +29,7 @@
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/icon-144x144.svg",
+      "src: "/icons/icon-144x144.svg",
       "sizes": "144x144",
       "type": "image/svg+xml",
       "purpose": "any maskable"
@@ -63,18 +61,30 @@
   ],
   "shortcuts": [
     {
-      "name": "New Chat",
-      "short_name": "New Chat",
-      "description": "Start a new conversation",
-      "url": "/",
-      "icons": [{ "src": "/icons/shortcut-new-chat.svg", "sizes": "96x96" }]
+      "name": "Compare Models",
+      "short_name": "Compare",
+      "description": "Compare responses from multiple AI models side-by-side",
+      "url": "/compare",
+      "icons": [
+        {
+          "src": "/icons/shortcut-new-chat.svg",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
     },
     {
-      "name": "Settings",
+      "name": "App Settings",
       "short_name": "Settings",
-      "description": "Adjust app settings and API keys",
-      "url": "/",
-      "icons": [{ "src": "/icons/shortcut-settings.svg", "sizes": "96x96" }]
+      "description": "Configure API keys and app preferences",
+      "url": "/?settings=true",
+      "icons": [
+        {
+          "src": "/icons/shortcut-settings.svg",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
     }
   ],
   "screenshots": [
@@ -83,17 +93,19 @@
       "sizes": "1280x720",
       "type": "image/svg+xml",
       "form_factor": "wide",
-      "label": "Ai Pista Desktop Interface"
+      "label": "Desktop view of AI Pista chat interface"
     },
     {
       "src": "/screenshots/mobile-narrow.svg",
       "sizes": "390x844",
       "type": "image/svg+xml",
       "form_factor": "narrow",
-      "label": "Ai Pista Mobile Interface"
+      "label": "Mobile view of AI Pista chat interface"
     }
   ],
+  "categories": ["productivity", "utilities", "developer tools"],
+  "prefer_related_applications": false,
   "edge_side_panel": {
-    "preferred_width": 480
+    "preferred_width": 400
   }
 }

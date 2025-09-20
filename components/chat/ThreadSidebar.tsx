@@ -342,13 +342,7 @@ export default function ThreadSidebar({
                             key={t.id}
                             thread={t}
                             isActive={t.id === activeId}
-                            onSelect={() => {
-                              if (t.pageType === 'compare') {
-                                window.location.href = '/compare';
-                              } else {
-                                handleThreadSelect(t.id);
-                              }
-                            }}
+                            onSelect={() => handleThreadSelect(t.id)}
                             onMenuToggle={(id) => setOpenMenuId(prev => prev === id ? null : id)}
                             isMenuOpen={openMenuId === t.id}
                             onDelete={(id) => {
@@ -376,13 +370,7 @@ export default function ThreadSidebar({
                             key={t.id}
                             thread={t}
                             isActive={t.id === activeId}
-                            onSelect={() => {
-                              if (t.pageType === 'compare') {
-                                window.location.href = '/compare';
-                              } else {
-                                handleThreadSelect(t.id);
-                              }
-                            }}
+                            onSelect={() => handleThreadSelect(t.id)}
                             onMenuToggle={(id) => setOpenMenuId(prev => prev === id ? null : id)}
                             isMenuOpen={openMenuId === t.id}
                             onDelete={(id) => {
@@ -410,13 +398,7 @@ export default function ThreadSidebar({
                             key={t.id}
                             thread={t}
                             isActive={t.id === activeId}
-                            onSelect={() => {
-                              if (t.pageType === 'compare') {
-                                window.location.href = '/compare';
-                              } else {
-                                handleThreadSelect(t.id);
-                              }
-                            }}
+                            onSelect={() => handleThreadSelect(t.id)}
                             onMenuToggle={(id) => setOpenMenuId(prev => prev === id ? null : id)}
                             isMenuOpen={openMenuId === t.id}
                             onDelete={(id) => {
@@ -640,11 +622,7 @@ export default function ThreadSidebar({
                             thread={t}
                             isActive={t.id === activeId}
                             onSelect={() => {
-                              if (t.pageType === 'compare') {
-                                window.location.href = '/compare';
-                              } else {
-                                handleThreadSelect(t.id);
-                              }
+                              handleThreadSelect(t.id);
                               onCloseMobile();
                             }}
                             onMenuToggle={(id) => setOpenMenuId(prev => prev === id ? null : id)}
@@ -675,11 +653,7 @@ export default function ThreadSidebar({
                             thread={t}
                             isActive={t.id === activeId}
                             onSelect={() => {
-                              if (t.pageType === 'compare') {
-                                window.location.href = '/compare';
-                              } else {
-                                handleThreadSelect(t.id);
-                              }
+                              handleThreadSelect(t.id);
                               onCloseMobile();
                             }}
                             onMenuToggle={(id) => setOpenMenuId(prev => prev === id ? null : id)}
@@ -710,11 +684,7 @@ export default function ThreadSidebar({
                             thread={t}
                             isActive={t.id === activeId}
                             onSelect={() => {
-                              if (t.pageType === 'compare') {
-                                window.location.href = '/compare';
-                              } else {
-                                handleThreadSelect(t.id);
-                              }
+                              handleThreadSelect(t.id);
                               onCloseMobile();
                             }}
                             onMenuToggle={(id) => setOpenMenuId(prev => prev === id ? null : id)}
@@ -754,98 +724,5 @@ export default function ThreadSidebar({
         }}
       />
     </>
-  );
-}
-
-// Simplified sidebar used on the Home page – extracted from app/page.tsx
-// Usage: import { SimpleThreadSidebar } from '@/components/chat/ThreadSidebar'
-type SimpleSidebarProps = {
-  isDark: boolean;
-  sidebarOpen: boolean;
-  onClose: () => void;
-  onNewChat?: () => void;
-};
-
-export function SimpleThreadSidebar({ isDark, sidebarOpen, onClose, onNewChat }: SimpleSidebarProps) {
-  const [search, setSearch] = useState('');
-  const [searchFocused, setSearchFocused] = useState(false);
-
-  return (
-    <div
-      className={cn(
-        'flex flex-col transition-all duration-300 border-r rounded-r-2xl',
-        'fixed lg:relative z-30 h-full',
-        sidebarOpen ? 'w-64 translate-x-0' : 'w-64 -translate-x-full lg:translate-x-0 lg:w-0 lg:overflow-hidden',
-        isDark ? 'bg-black/40 border-gray-800 backdrop-blur-sm' : 'bg-white/70 border-orange-300 backdrop-blur-sm',
-      )}
-    >
-      {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-inherit rounded-tr-2xl">
-        <h1 className={cn('text-xl font-semibold', isDark ? 'text-white' : 'text-gray-800')}>Made by Sankalp</h1>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={onClose}
-          className={cn('lg:hidden rounded-xl', isDark ? 'text-gray-300 hover:bg-gray-800/50' : 'text-gray-800 hover:bg-orange-100')}
-        >
-          <X className="h-4 w-4" />
-        </Button>
-      </div>
-
-      <div className="p-4">
-        <Button
-          onClick={() => onNewChat?.()}
-          className={cn(
-            'w-full justify-start gap-2 rounded-xl transition-all duration-200 hover:scale-[1.02]',
-            isDark ? 'bg-red-600/20 hover:bg-red-600/30 text-red-300 border-red-600/30' : 'bg-orange-200 hover:bg-orange-300 text-orange-800 border-orange-400',
-          )}
-          variant="outline"
-        >
-          <Plus className="h-4 w-4" />
-          New Chat
-        </Button>
-      </div>
-
-      <div className="px-4 pb-3">
-        <div className="flex">
-          <div
-            className={cn(
-              'flex items-center gap-2 rounded-2xl overflow-hidden transition-all duration-300',
-              isDark ? 'bg-gray-900/70 hover:bg-gray-900/80' : 'bg-orange-50/80 hover:bg-orange-50/90',
-              searchFocused || search.length > 0 ? 'w-full ring-2 ring-offset-0 ring-red-500/20 dark:ring-red-500/20' : 'w-32',
-            )}
-          >
-            <Search className={cn('ml-3 h-4 w-4 shrink-0', isDark ? 'text-gray-400' : 'text-gray-600')} />
-            <input
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              onFocus={() => setSearchFocused(true)}
-              onBlur={() => setSearchFocused(false)}
-              placeholder="Search your threads..."
-              className={cn('bg-transparent border-0 outline-none text-sm w-full py-2 pr-2 placeholder:transition-all placeholder:duration-300', isDark ? 'text-white placeholder:text-gray-500' : 'text-gray-800 placeholder:text-gray-500')}
-            />
-            {search.length > 0 && (
-              <button
-                onClick={() => setSearch('')}
-                className={cn('mr-2 rounded-md p-1 transition-colors', isDark ? 'text-gray-400 hover:bg-gray-800' : 'text-gray-600 hover:bg-orange-100')}
-                aria-label="Clear search"
-              >
-                <X className="h-3.5 w-3.5" />
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Today Section */}
-      <div className="px-4 pb-2">
-        <h3 className={cn('text-sm font-medium mb-2', isDark ? 'text-gray-400' : 'text-gray-700')}>Today</h3>
-        <div className={cn('text-sm p-3 rounded-xl cursor-pointer hover:bg-opacity-80 transition-all duration-200', isDark ? 'text-gray-300 hover:bg-gray-800/50' : 'text-gray-800 hover:bg-orange-100')}>Title for conversation</div>
-      </div>
-
-      {/* Spacer */}
-      <div className="flex-1" />
-
-    </div>
   );
 }
