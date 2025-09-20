@@ -90,7 +90,7 @@ export default function StartupSprintLanding() {
     >
 
       {/* Navbar */}
-      <nav className="flex items-center justify-between px-6 pt-7 relative max-w-7xl mx-auto z-20">
+      <nav className="flex items-center justify-between px-6 pt-7 relative max-w-7xl mx-auto z-30">
         <div className="flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/Web_logo.svg" alt="Ai Pista" className="h-10 md:h-12 lg:h-14 w-auto" />
@@ -142,7 +142,7 @@ export default function StartupSprintLanding() {
       )}
 
       {/* Hero Section */}
-      <div className="flex flex-col items-center justify-center min-h-[90vh] px-6 relative z-10">
+      <div className="flex flex-col items-center justify-center min-h-[90vh] px-6 relative z-20">
 
         {/* Main Heading */}
         <div className="text-center mb-8 ">
@@ -164,7 +164,7 @@ export default function StartupSprintLanding() {
               href="/compare"
               className="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[170px] px-6 py-3 rounded-full font-semibold tracking-wide bg-red-600 text-white hover:bg-red-500 transition-colors shadow"
             >
-              Compare Models
+              Start Chat
             </Link>
           </div>
         </div>
