@@ -63,8 +63,8 @@ export default function AboutPage() {
         <Image
           src="/Space-Image.png"
           alt="Space background"
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{objectFit: "cover"}}
           data-ai-hint="purple space"
         />
       </div>
@@ -146,7 +146,7 @@ export default function AboutPage() {
           <div className="space-y-6 text-zinc-300/90 text-sm sm:text-base">
             <div>
               <p className="text-zinc-200 mb-1">What is Ai Pista?</p>
-              <p>Ai Pista is an AI chat app that lets you compare responses from <strong>300+ models</strong> in one UI.</p>
+              <p>Ai Pista is an AI chat app that lets you compare responses from 300+ models in one UI.</p>
             </div>
             <div>
               <p className="text-zinc-200 mb-1">Is Ai Pista free?</p>

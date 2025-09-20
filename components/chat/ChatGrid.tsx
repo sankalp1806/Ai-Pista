@@ -68,7 +68,7 @@ export default function ChatGrid({
   const isDark = theme.mode === 'dark';
   const [pendingDelete, setPendingDelete] = useState<{ turnIndex: number } | null>(null);
   // Manual width configuration for model columns
-  const columnWidth = '320px'; // EDIT THIS VALUE to change the width of all model columns
+  const columnWidth = '280px'; // EDIT THIS VALUE to change the width of all model columns
   const collapsedColumnWidth = '60px';
 
   // Compute grid columns dynamically based on manual widths

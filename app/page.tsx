@@ -92,9 +92,8 @@ export default function StartupSprintLanding() {
       <Image
           src="/Space-Image.png"
           alt="background"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
+          fill
+          style={{objectFit: "cover", objectPosition: "center"}}
           className="z-0"
         />
 
