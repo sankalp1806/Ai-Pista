@@ -121,20 +121,17 @@ export default function ChatGrid({
             Select up to 5 models to compare.
           </div>
         ) : (
-          <div className="w-full space-y-3 pr-3 lg:pr-4">
+          <div className="w-full space-y-3">
             {/* Header row: model labels */}
             <div
               className={cn(
-                "w-full gap-3 items-center mt-0 sticky top-0 z-30 py-1 rounded-t-lg shadow-[0_1px_0_rgba(0,0,0,0.4)] bg-transparent border-0 sm:backdrop-blur-sm sm:border-b",
+                "grid w-full gap-3 items-center overflow-visible mt-0 sticky top-0 left-0 right-0 z-30 -mx-3 px-3 lg:-mx-4 lg:px-4 py-1 rounded-t-lg shadow-[0_1px_0_rgba(0,0,0,0.4)] bg-transparent border-0 sm:backdrop-blur-sm sm:border-b",
                 isDark 
                   ? "sm:bg-black/40 sm:border-white/10"
                   : "sm:bg-white/40 sm:border-black/10"
               )}
+              style={{ gridTemplateColumns: headerCols }}
             >
-              <div
-                className="grid gap-3"
-                style={{ gridTemplateColumns: headerCols, width: 'fit-content', minWidth: '100%' }}
-              >
               {selectedModels.map((m) => {
                 const isFree = /(\(|\s)free\)/i.test(m.label);
                 const isCollapsed = collapsedIds.includes(m.id);
@@ -245,13 +242,12 @@ export default function ChatGrid({
                   </div>
                 );
               })}
-              </div>
             </div>
 
             {pairs.map((row, i) => (
               <div key={i} className="space-y-3">
                 {/* User prompt as right-aligned red pill */}
-                <div className="px-2 flex justify-end relative">
+                <div className="sticky right-0 flex justify-end">
                     {editingIdx === i && (
                       <div className="ml-auto">
                         <textarea
@@ -300,7 +296,7 @@ export default function ChatGrid({
                             className={cn(
                               "px-3 py-1 text-xs rounded transition-colors",
                               isDark 
-                                ? "bg-white/10 hover:bg-white/20 text-white" 
+                                ? "bg-white/10 hover:bg-white/20 text-white"
                                 : "bg-black/10 hover:bg-black/20 text-gray-700"
                             )}
                           >
@@ -340,7 +336,7 @@ export default function ChatGrid({
 
                 <div
                   className="grid gap-3 items-stretch"
-                  style={{ gridTemplateColumns: headerCols, paddingBottom: '1rem' }}
+                  style={{ gridTemplateColumns: headerCols }}
                 >
                   {selectedModels.map((m) => {
                     const ans = row.answers.find((a) => a.modelId === m.id);
