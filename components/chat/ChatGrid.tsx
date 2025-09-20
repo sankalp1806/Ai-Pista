@@ -70,6 +70,9 @@ export default function ChatGrid({
   // Compute grid columns dynamically so expanded model can take full width
   const headerCols = useMemo(() => {
     if (headerTemplate) return headerTemplate;
+    if (selectedModels.length === 5) {
+      return "320px 320px 320px 320px 285px";
+    }
     
     const expandedCount = selectedModels.length - collapsedIds.length;
     
