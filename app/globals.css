@@ -1095,12 +1095,12 @@ body.light * {
 
 .glowing-btn {
   position: relative;
-  color: #ff5277;
+  color: black;
   cursor: pointer;
   padding: 0.35em 1em;
   border: 0.15em solid #ff5277;
   border-radius: 0.45em;
-  background: none;
+  background: #ff5277;
   perspective: 2em;
   font-family: "Raleway", sans-serif;
   font-size: 1.5em;

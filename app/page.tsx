@@ -9,6 +9,7 @@ import SupportDropdown from '@/components/support-dropdown'
 import { Menu, X } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import { CustomCrowd } from '@/components/Footer'
+import Image from "next/image"
 
 export default function StartupSprintLanding() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -87,8 +88,15 @@ export default function StartupSprintLanding() {
     <>
     <div
       className="min-h-screen text-white relative overflow-hidden bg-cover bg-center bg-no-repeat overflow-x-hidden no-scrollbar"
-      style={{backgroundImage: "url('/Space-Image.png')"}}
     >
+      <Image
+          src="/Space-Image.png"
+          alt="background"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          className="z-0"
+        />
 
       {/* Navbar */}
       <nav className="flex items-center justify-between px-6 pt-7 relative max-w-7xl mx-auto z-30">
