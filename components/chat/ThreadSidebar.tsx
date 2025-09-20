@@ -199,7 +199,7 @@ export default function ThreadSidebar({
               <div className="w-4 h-4 rounded-full bg-gradient-to-r from-red-500 to-red-600 shadow-lg" />
               <div className="absolute inset-0 w-4 h-4 rounded-full bg-gradient-to-r from-red-500 to-red-600 animate-ping opacity-30" />
             </div>
-            {/* Replace title with Made by Niladri badge */}
+            {/* Replace title with Made by Sankalp badge */}
             <a
               href="https://x.com/byteHumi"
               target="_blank"
@@ -214,7 +214,7 @@ export default function ThreadSidebar({
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/image.png"
-                alt="Niladri"
+                alt="Sankalp"
                 className={cn(
                   "h-5 w-5 xl:h-7 xl:w-7 rounded-full object-cover shadow-sm",
                   theme.mode === 'dark' ? "ring-2 ring-white/20" : "ring-2 ring-gray-300/50"
@@ -225,7 +225,7 @@ export default function ThreadSidebar({
                 theme.mode === 'dark' ? "text-white/90" : "text-gray-700"
               )}>
                 <span className="font-medium">Made by</span>
-                <span className="font-bold ml-1">Niladri</span>
+                <span className="font-bold ml-1">Sankalp</span>
               </span>
             </a>
           </div>
@@ -522,7 +522,7 @@ export default function ThreadSidebar({
                   <div className="w-4 h-4 rounded-full bg-gradient-to-r from-red-500 to-red-600 shadow-lg" />
                   <div className="absolute inset-0 w-4 h-4 rounded-full bg-gradient-to-r from-red-500 to-red-600 animate-ping opacity-30" />
                 </div>
-                {/* Replace title with Made by Niladri badge */}
+                {/* Replace title with Made by Sankalp badge */}
                 <a
                   href="https://x.com/byteHumi"
                   target="_blank"
@@ -537,7 +537,7 @@ export default function ThreadSidebar({
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/image.png"
-                    alt="Niladri"
+                    alt="Sankalp"
                     className={cn(
                       "h-7 w-7 rounded-full object-cover shadow-sm",
                       theme.mode === 'dark' ? "ring-2 ring-white/20" : "ring-2 ring-gray-300/50"
@@ -548,7 +548,7 @@ export default function ThreadSidebar({
                     theme.mode === 'dark' ? "text-white/90" : "text-gray-700"
                   )}>
                     <span className="font-medium">Made by</span>
-                    <span className="font-bold ml-1">Niladri</span>
+                    <span className="font-bold ml-1">Sankalp</span>
                   </span>
                 </a>
               </div>
@@ -803,7 +803,7 @@ export function SimpleThreadSidebar({ isDark, sidebarOpen, onClose, onNewChat }:
     >
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-inherit rounded-tr-2xl">
-        <h1 className={cn('text-xl font-semibold', isDark ? 'text-white' : 'text-gray-800')}>Made by Niladri</h1>
+        <h1 className={cn('text-xl font-semibold', isDark ? 'text-white' : 'text-gray-800')}>Made by Sankalp</h1>
         <Button
           variant="ghost"
           size="sm"
