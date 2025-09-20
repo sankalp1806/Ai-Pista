@@ -164,7 +164,7 @@ export default function StartupSprintLanding() {
               href="/compare"
               className="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[170px] px-6 py-3 rounded-full font-semibold tracking-wide bg-red-600 text-white hover:bg-red-500 transition-colors shadow"
             >
-              Start Chat
+              Compare Models
             </Link>
           </div>
         </div>
