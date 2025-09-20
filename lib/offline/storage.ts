@@ -2,7 +2,7 @@
 import type { ChatThread } from '@/lib/types';
 import type { OfflineQueueItem, CachedConversation } from './types';
 
-const DB_NAME = 'OpenFiestaOffline';
+const DB_NAME = 'AIPistaOffline';
 const DB_VERSION = 1;
 const CONVERSATIONS_STORE = 'conversations';
 const QUEUE_STORE = 'offlineQueue';

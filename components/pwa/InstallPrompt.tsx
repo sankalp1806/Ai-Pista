@@ -131,7 +131,7 @@ export const InstallPrompt: React.FC<InstallPromptProps> = ({
             </div>
             <div>
               <h3 className="font-semibold text-gray-900 dark:text-white text-sm">
-                Install Open Fiesta
+                Install AI Pista
               </h3>
               <p className="text-xs text-gray-600 dark:text-gray-400">
                 Get the app experience

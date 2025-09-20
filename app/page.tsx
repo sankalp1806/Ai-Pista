@@ -6,7 +6,6 @@ import GithubStar from '@/components/app/GithubStar'
 import SupportDropdown from '@/components/support-dropdown'
 import { Menu, X } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
-import { Testimonials } from '@/components/testimonials/Testimonials'
 import { CustomCrowd } from '@/components/Footer'
 // import { Instagram, Twitter, Linkedin, Menu, X } from "lucide-react"
 
@@ -96,18 +95,14 @@ export default function StartupSprintLanding() {
       <nav className="flex items-center justify-between px-6 pt-7 relative max-w-7xl mx-auto z-10">
         <div className="flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/Web_logo.svg" alt="Open Fiesta" className="h-10 md:h-12 lg:h-14 w-auto" />
+          <img src="/Web_logo.svg" alt="AI Pista" className="h-10 md:h-12 lg:h-14 w-auto" />
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          <Link href="/press" className="text-gray-300/60 hover:text-white font-light transition-colors text-lg">Press</Link>
-          <Link href="/about" className="text-gray-300/60 hover:text-white font-light transition-colors text-lg">About</Link>
-          <Link href="/chat" className="text-gray-300/60 hover:text-white font-light transition-colors text-lg">Chat</Link>
-          <Link href="/contributors" className="text-gray-300/60 hover:text-white font-light transition-colors text-lg">Contributors</Link>
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <GithubStar owner="NiladriHazra" repo="Open-Fiesta" theme="dark" />
+          <GithubStar owner="NiladriHazra" repo="AI-Pista" theme="dark" />
           <SupportDropdown inline theme={'dark'} />
         </div>
 
@@ -134,21 +129,11 @@ export default function StartupSprintLanding() {
             <X className="w-5 h-5" />
           </button>
           <div className="flex flex-col items-center justify-center min-h-screen space-y-8">
-            <Link href="/press" className="text-white text-2xl hover:text-gray-300 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Press</Link>
-            <Link href="/about" className="text-white text-2xl hover:text-gray-300 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-            <Link href="/chat" className="text-white text-2xl hover:text-gray-300 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Chat</Link>
             <Link href="/compare" className="text-white text-2xl hover:text-gray-300 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Compare</Link>
             <div className="flex flex-col items-center gap-3 mt-8 w-64">
               <Link
-                href="/chat"
-                className="inline-flex w-full items-center justify-center px-6 py-3 rounded-full font-semibold tracking-wide bg-red-600 text-white hover:bg-red-500 transition-colors shadow"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Start Chat
-              </Link>
-              <Link
                 href="/compare"
-                className="inline-flex w-full items-center justify-center px-6 py-3 rounded-full font-semibold tracking-wide border border-red-300 text-white hover:bg-white/10 transition-colors"
+                className="inline-flex w-full items-center justify-center px-6 py-3 rounded-full font-semibold tracking-wide bg-red-600 text-white hover:bg-red-500 transition-colors shadow"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Compare Models
@@ -192,14 +177,8 @@ export default function StartupSprintLanding() {
         <div className="w-full max-w-md">
           <div className="mt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2 w-full">
             <Link
-              href="/chat"
-              className="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[170px] px-6 py-3 rounded-full font-semibold tracking-wide bg-red-600 text-white hover:bg-red-500 transition-colors shadow"
-            >
-              Start Chat
-            </Link>
-            <Link
               href="/compare"
-              className="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[170px] px-6 py-3 rounded-full font-semibold tracking-wide border border-red-300 text-white hover:bg-white/10 transition-colors"
+              className="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[170px] px-6 py-3 rounded-full font-semibold tracking-wide bg-red-600 text-white hover:bg-red-500 transition-colors shadow"
             >
               Compare Models
             </Link>
@@ -254,28 +233,14 @@ export default function StartupSprintLanding() {
         </div>
       </div>
     </div>
-
-    {/* Testimonials Section with inverted hero background */}
-    <div className="min-h-screen w-full bg-black relative overflow-hidden overflow-x-hidden no-scrollbar">
-      {/* Inverted hero background */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center [transform:scaleY(-1)]"
-        style={{ backgroundImage: "url('https://i.postimg.cc/vHqJkv1Q/Chat-GPT-Image-Aug-24-2025-01-01-36-PM.png')" }}
-      />
-      {/* Subtle dark overlay for readability */}
-      <div className="absolute inset-0 z-0 bg-black/50" />
-      <div className="relative z-10 pb-0">
-        <Testimonials />
-      </div>
-    </div>
     
-    {/* Large OPEN FIESTA text before footer */}
+    {/* Large AI Pista text before footer */}
     <div className="bg-black py-8 md:py-16 flex items-center justify-center overflow-hidden">
       <h1
         className="text-[clamp(2.25rem,18vw,20rem)] text-white uppercase tracking-[0.06em] leading-none select-none animate-pulse text-center whitespace-nowrap max-w-full"
         style={{ fontFamily: 'Impact, "Arial Black", "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Bold", sans-serif', fontWeight: 900, fontStretch: 'condensed' }}
       >
-        OPEN FIESTA
+        AI PISTA
       </h1>
     </div>
     
