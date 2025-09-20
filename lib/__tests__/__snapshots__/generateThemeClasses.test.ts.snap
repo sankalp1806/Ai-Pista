@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateThemeClasses should generate correct class names for custom theme config 1`] = `
+[
+  "dark",
+  "accent-emerald",
+  "font-inter",
+  "bg-minimal-theme",
+  "chatinput-frosty",
+]
+`;
+
+exports[`generateThemeClasses should generate correct class names for default theme config 1`] = `
+[
+  "light",
+  "accent-crimson",
+  "font-geist",
+  "bg-gradient-theme",
+  "chatinput-default",
+]
+`;

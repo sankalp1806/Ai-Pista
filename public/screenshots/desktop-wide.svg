@@ -1,0 +1,7 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#f8f9fa"/>
+  <rect x="0" y="0" width="1280" height="60" fill="#000000"/>
+  <text x="640" y="35" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Open Fiesta - AI Chat Platform</text>
+  <rect x="40" y="100" width="1200" height="580" fill="#ffffff" stroke="#e0e0e0" stroke-width="1" rx="8"/>
+  <text x="640" y="400" text-anchor="middle" fill="#666666" font-family="Arial, sans-serif" font-size="24">Desktop Chat Interface</text>
+</svg>
