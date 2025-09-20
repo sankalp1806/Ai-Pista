@@ -24,7 +24,7 @@ export type ChatGridProps = {
   selectedModels: AiModel[];
   headerTemplate: string;
   collapsedIds: string[];
-  setCollapsedIds: (updater: (prev: string[]) => string[]) => void;
+  setCollapsedIds: (updater: (prev: string[]) => void) => void;
   loadingIds: string[];
   pairs: { user: ChatMessage; answers: ChatMessage[] }[];
   onEditUser: (turnIndex: number, newText: string) => void;
@@ -247,7 +247,7 @@ export default function ChatGrid({
             {pairs.map((row, i) => (
               <div key={i} className="space-y-3">
                 {/* User prompt as right-aligned red pill */}
-                <div className="px-2 flex justify-end sticky right-6 sm:right-8 z-10">
+                <div className="flex justify-end sticky right-6 sm:right-8 z-10">
                     {editingIdx === i ? (
                       <div className="ml-auto">
                         <textarea
