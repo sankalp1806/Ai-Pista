@@ -2,10 +2,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import GithubStar from '@/components/app/GithubStar';
-import ThemeToggle from '@/components/ThemeToggle';
 import CustomModels from '@/components/modals/CustomModels';
 import Settings from '@/components/app/Settings';
-import { Layers, Home, Menu as MenuIcon } from 'lucide-react';
+import { Layers, Home, Menu as MenuIcon, Sun, Moon } from 'lucide-react';
 import { useTheme } from '@/lib/themeContext';
 import { cn } from '@/lib/utils';
 import SupportDropdown from '../support-dropdown';
@@ -31,7 +30,7 @@ export default function HeaderBar({
   showCompareButton = false,
   hideHomeButton = false,
 }: Props) {
-  const { theme } = useTheme();
+  const { theme, toggleMode } = useTheme();
   const isDark = theme.mode === 'dark';
 
   return (
@@ -116,7 +115,19 @@ export default function HeaderBar({
         </button>
 
         <CustomModels compact />
-        <ThemeToggle compact />
+        <button
+          onClick={toggleMode}
+          className={cn(
+            "inline-flex items-center gap-1.5 text-xs h-9 w-9 justify-center rounded-xl border shadow transition-all duration-200",
+            isDark
+              ? "border-white/15 bg-white/5 text-white hover:bg-white/10"
+              : "border-white/40 bg-white/70 hover:bg-white/80 text-gray-700"
+          )}
+          title="Toggle theme"
+          aria-label="Toggle theme"
+        >
+          {isDark ? <Sun size={14} /> : <Moon size={14} />}
+        </button>
         <Settings compact />
         <GithubStar owner={githubOwner} repo={githubRepo} />
         <div >
