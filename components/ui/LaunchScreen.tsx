@@ -3,6 +3,7 @@
 import { useTheme } from '@/lib/themeContext';
 import { cn } from '@/lib/utils';
 import { isStandalone } from '@/lib/pwa-config';
+import Image from 'next/image';
 
 interface LaunchScreenProps {
   backgroundClass?: string;
@@ -94,8 +95,14 @@ export default function LaunchScreen({
                       )}
                       style={{ boxShadow: '0 0 36px 2px var(--accent-primary)' }}
                     >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={logoSrc} alt="Brand" className="h-16 w-16 rounded-xl" />
+                      <Image 
+                        src={logoSrc} 
+                        alt="Brand" 
+                        width={64}
+                        height={64}
+                        className="h-16 w-16 rounded-xl" 
+                        priority 
+                      />
                     </div>
                   )}
 
