@@ -37,30 +37,6 @@ export interface AccentColorDefinition {
 
 // Accent Color System for each main accent
 export const ACCENT_COLOR_SYSTEM: Record<AccentColor, AccentColorDefinition> = {
-  black: {
-    interactive: {
-      primary: '#141414',
-      hover: '#1f1f1f',
-      active: '#000000',
-      focus: 'rgba(255,255,255,0.35)',
-    },
-    highlight: {
-      primary: '#ffffff',
-      secondary: '#d9d9d9',
-      subtle: 'rgba(255,255,255,0.12)',
-    },
-    status: {
-      success: '#10b981',
-      warning: '#f59e0b',
-      error: '#ef4444',
-      info: '#3b82f6',
-    },
-    glow: {
-      soft: 'rgba(255,255,255,0.15)',
-      medium: 'rgba(255,255,255,0.28)',
-      strong: 'rgba(255,255,255,0.45)',
-    },
-  },
   crimson: {
     interactive: {
       primary: '#9d1c2b',
@@ -83,78 +59,6 @@ export const ACCENT_COLOR_SYSTEM: Record<AccentColor, AccentColorDefinition> = {
       soft: 'rgba(192, 34, 52, 0.28)',
       medium: 'rgba(192, 34, 52, 0.45)',
       strong: 'rgba(192, 34, 52, 0.65)',
-    },
-  },
-  emerald: {
-    interactive: {
-      primary: '#0b7f5a',
-      hover: '#086247',
-      active: '#044432',
-      focus: 'rgba(11, 127, 90, 0.5)',
-    },
-    highlight: {
-      primary: '#1f8c67',
-      secondary: '#47b993',
-      subtle: 'rgba(31, 140, 103, 0.16)',
-    },
-    status: {
-      success: '#0e9f71',
-      warning: '#d28a17',
-      error: '#d13b3b',
-      info: '#3374dd',
-    },
-    glow: {
-      soft: 'rgba(14, 159, 113, 0.28)',
-      medium: 'rgba(14, 159, 113, 0.45)',
-      strong: 'rgba(14, 159, 113, 0.65)',
-    },
-  },
-  blue: {
-    interactive: {
-      primary: '#2a62ba',
-      hover: '#1e4c91',
-      active: '#16386c',
-      focus: 'rgba(42, 98, 186, 0.5)',
-    },
-    highlight: {
-      primary: '#3d72b8',
-      secondary: '#6e9edb',
-      subtle: 'rgba(61, 114, 184, 0.16)',
-    },
-    status: {
-      success: '#0e9f71',
-      warning: '#d28a17',
-      error: '#d13b3b',
-      info: '#3374dd',
-    },
-    glow: {
-      soft: 'rgba(51, 116, 221, 0.28)',
-      medium: 'rgba(51, 116, 221, 0.45)',
-      strong: 'rgba(51, 116, 221, 0.65)',
-    },
-  },
-  purple: {
-    interactive: {
-      primary: '#663fba',
-      hover: '#522f99',
-      active: '#3f2376',
-      focus: 'rgba(102, 63, 186, 0.5)',
-    },
-    highlight: {
-      primary: '#744fbe',
-      secondary: '#a484e3',
-      subtle: 'rgba(116, 79, 190, 0.16)',
-    },
-    status: {
-      success: '#0e9f71',
-      warning: '#d28a17',
-      error: '#d13b3b',
-      info: '#3374dd',
-    },
-    glow: {
-      soft: 'rgba(123, 76, 217, 0.28)',
-      medium: 'rgba(123, 76, 217, 0.45)',
-      strong: 'rgba(123, 76, 217, 0.65)',
     },
   },
 };

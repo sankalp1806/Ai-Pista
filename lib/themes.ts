@@ -5,7 +5,7 @@
 
 // Theme Mode Types
 export type ThemeMode = 'light' | 'dark';
-export type AccentColor = 'crimson' | 'emerald' | 'blue' | 'purple' | 'black';
+export type AccentColor = 'crimson'; // Simplified to a single accent
 export type FontFamily = 'geist' | 'inter' | 'mono' | 'poppins';
 export type BackgroundStyle = 'gradient' | 'minimal';
 export type ChatInputStyle = 'default' | 'frosty';
@@ -67,23 +67,6 @@ export interface BackgroundDefinition {
 
 // Accent Color Configurations
 export const ACCENT_COLORS: Record<AccentColor, AccentDefinition> = {
-  black: {
-    id: 'black',
-    name: 'Black',
-    description: 'Neutral black & charcoal',
-    primary: '#000000',
-    secondary: '#141414',
-    tertiary: '#1f1f1f',
-    background: {
-      primary: 'rgba(255,255,255,0.08)',
-      secondary: 'rgba(255,255,255,0.04)',
-    },
-    gradient: {
-      light:
-        'linear-gradient(135deg, #ffffff 0%, #ececec 12%, #cfcfcf 24%, #9f9f9f 40%, #595959 60%, #2e2e2e 78%, #141414 90%, #000000 100%)',
-      dark: 'linear-gradient(0deg, rgba(0,0,0,0.72), rgba(0,0,0,0.72)), radial-gradient(68% 58% at 50% 50%, #222222 0%, #1a1a1a 22%, #141414 44%, #0f0f0f 66%, #090909 82%, #050505 100%)',
-    },
-  },
   crimson: {
     id: 'crimson',
     name: 'Crimson',
@@ -99,57 +82,6 @@ export const ACCENT_COLORS: Record<AccentColor, AccentDefinition> = {
       light:
         'linear-gradient(135deg, #d7b4b8 0%, #b94c58 22%, #8f2f3d 48%, #66111b 76%, #3c0b12 100%)',
       dark: 'linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0,0,0,0.7)), radial-gradient(68% 58% at 50% 50%, #821624 0%, #66111b 22%, #4a0d14 42%, #320a0f 58%, #21080b 72%, #140507 86%, #090304 100%)',
-    },
-  },
-  emerald: {
-    id: 'emerald',
-    name: 'Emerald',
-    description: 'Muted deep green',
-    primary: '#0b7f5a',
-    secondary: '#086247',
-    tertiary: '#044432',
-    background: {
-      primary: 'rgba(11, 127, 90, 0.115)',
-      secondary: 'rgba(11, 127, 90, 0.045)',
-    },
-    gradient: {
-      light:
-        'linear-gradient(135deg, #b1d8cd 0%, #3d9f80 22%, #1c7557 48%, #054f38 76%, #033226 100%)',
-      dark: 'linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0,0,0,0.7)), radial-gradient(68% 58% at 50% 50%, #086247 0%, #044432 22%, #03352a 40%, #02261f 56%, #021a16 72%, #01110e 86%, #010807 100%)',
-    },
-  },
-  blue: {
-    id: 'blue',
-    name: 'Ocean Blue',
-    description: 'Muted deep blue',
-    primary: '#2a62ba',
-    secondary: '#1e4c91',
-    tertiary: '#16386c',
-    background: {
-      primary: 'rgba(42, 98, 186, 0.12)',
-      secondary: 'rgba(42, 98, 186, 0.045)',
-    },
-    gradient: {
-      light:
-        'linear-gradient(135deg, #b9cbe0 0%, #5d88c4 22%, #315d94 48%, #1b426e 76%, #112843 100%)',
-      dark: 'linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0,0,0,0.7)), radial-gradient(68% 58% at 50% 50%, #1e4c91 0%, #16386c 22%, #122c53 40%, #0e203c 56%, #0a1629 72%, #071020 86%, #040910 100%)',
-    },
-  },
-  purple: {
-    id: 'purple',
-    name: 'Royal Purple',
-    description: 'Muted deep purple',
-    primary: '#663fba',
-    secondary: '#522f99',
-    tertiary: '#3f2376',
-    background: {
-      primary: 'rgba(102, 63, 186, 0.125)',
-      secondary: 'rgba(102, 63, 186, 0.045)',
-    },
-    gradient: {
-      light:
-        'linear-gradient(135deg, #cfc4e4 0%, #8e6ac8 22%, #5d3b97 48%, #42296d 76%, #2a1846 100%)',
-      dark: 'linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0,0,0,0.7)), radial-gradient(68% 58% at 50% 50%, #522f99 0%, #3f2376 22%, #2f1a59 40%, #21113f 56%, #170b2c 72%, #10081f 86%, #090411 100%)',
     },
   },
 };

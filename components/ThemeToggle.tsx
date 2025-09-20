@@ -6,87 +6,14 @@ import { X, Palette, Sun, Moon, Type, Grid3X3, Star, MessageSquare } from 'lucid
 import { useTheme } from '@/lib/themeContext';
 import { cn } from '@/lib/utils';
 import {
-  ACCENT_COLORS,
   FONT_FAMILIES,
   BACKGROUND_STYLES,
-  type AccentColor,
   type FontFamily,
   type BackgroundStyle,
   type BadgePair,
   type ChatInputStyle,
 } from '@/lib/themes';
 import { BADGE_PAIRS } from '@/lib/badgeSystem';
-
-// Memoized accent option component
-const AccentOption = React.memo<{
-  accent: {
-    id: AccentColor;
-    name: string;
-    description: string;
-    primary: string;
-    secondary: string;
-    tertiary: string;
-  };
-  isSelected: boolean;
-  onSelect: (id: AccentColor) => void;
-  isDark: boolean;
-}>(({ accent, isSelected, onSelect, isDark }) => {
-  const handleClick = useCallback(() => {
-    onSelect(accent.id);
-  }, [accent.id, onSelect]);
-
-  return (
-    <button
-      onClick={handleClick}
-      className={cn(
-        "p-3 rounded-lg border transition-colors text-left",
-        isSelected
-          ? isDark
-            ? 'border-white/30 bg-white/10'
-            : 'border-black/30 bg-black/10'
-          : isDark
-            ? 'border-white/10 bg-white/5 hover:bg-white/8'
-            : 'border-black/10 bg-black/5 hover:bg-black/8'
-      )}
-    >
-      <div className="flex items-center gap-3 mb-2">
-        <div
-          className={`w-6 h-6 rounded-full border border-white/20 accent-preview accent-preview-${
-            accent.id
-          }-primary ${
-            isSelected
-              ? 'ring-2 ring-[var(--accent-interactive-focus)] ring-offset-1 ring-offset-black/20'
-              : ''
-          }`}
-          aria-hidden="true"
-        />
-        <div>
-          <div className="text-sm font-medium">{accent.name}</div>
-          <div className={cn(
-            "text-xs",
-            isDark ? "text-white/60" : "text-gray-600"
-          )}>{accent.description}</div>
-        </div>
-      </div>
-      <div className="flex gap-1">
-        <div
-          className={`w-3 h-3 accent-preview accent-preview-${accent.id}-primary`}
-          aria-hidden="true"
-        />
-        <div
-          className={`w-3 h-3 accent-preview accent-preview-${accent.id}-secondary`}
-          aria-hidden="true"
-        />
-        <div
-          className={`w-3 h-3 accent-preview accent-preview-${accent.id}-tertiary`}
-          aria-hidden="true"
-        />
-      </div>
-    </button>
-  );
-});
-
-AccentOption.displayName = 'AccentOption';
 
 // Memoized font option component
 const FontOption = React.memo<{
@@ -281,12 +208,11 @@ export default function ThemeToggle({ compact }: ThemeToggleProps) {
     useTheme();
   const isDark = theme.mode === 'dark';
   const [open, setOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<'accent' | 'font' | 'background' | 'badges' | 'input'>(
-    'accent',
+  const [activeTab, setActiveTab] = useState<'font' | 'background' | 'badges' | 'input'>(
+    'badges',
   );
 
   // Memoize the arrays to prevent recreating on every render
-  const accentValues = useMemo(() => Object.values(ACCENT_COLORS), []);
   const fontValues = useMemo(() => Object.values(FONT_FAMILIES), []);
   const backgroundValues = useMemo(() => Object.values(BACKGROUND_STYLES), []);
   const badgeValues = useMemo(() => Object.values(BADGE_PAIRS), []);
@@ -295,13 +221,6 @@ export default function ThemeToggle({ compact }: ThemeToggleProps) {
   const handleOpen = useCallback(() => setOpen(true), []);
   const handleClose = useCallback(() => setOpen(false), []);
   const handleToggleMode = useCallback(() => toggleMode(), [toggleMode]);
-
-  const handleAccentChange = useCallback(
-    (accent: AccentColor) => {
-      setAccent(accent);
-    },
-    [setAccent],
-  );
 
   const handleFontChange = useCallback(
     (font: FontFamily) => {
@@ -330,14 +249,13 @@ export default function ThemeToggle({ compact }: ThemeToggleProps) {
   );
 
   const handleTabChange = useCallback(
-    (tab: 'accent' | 'font' | 'background' | 'badges' | 'input') => {
+    (tab: 'font' | 'background' | 'badges' | 'input') => {
       setActiveTab(tab);
     },
     [],
   );
 
   // Memoized current theme info
-  const currentAccent = useMemo(() => ACCENT_COLORS[theme.accent], [theme.accent]);
   const currentFont = useMemo(() => FONT_FAMILIES[theme.font], [theme.font]);
   const currentBackground = useMemo(() => BACKGROUND_STYLES[theme.background], [theme.background]);
   const currentChatInputStyle = theme.chatInputStyle || 'default';
@@ -423,7 +341,6 @@ export default function ThemeToggle({ compact }: ThemeToggleProps) {
                 isDark ? "bg-white/5" : "bg-black/5"
               )}>
                 {[
-                  { id: 'accent' as const, label: 'Colors', icon: Palette },
                   { id: 'badges' as const, label: 'Badges', icon: Star },
                   { id: 'font' as const, label: 'Fonts', icon: Type },
                   {
@@ -459,29 +376,6 @@ export default function ThemeToggle({ compact }: ThemeToggleProps) {
 
               {/* Tab Content (scrollable) */}
               <div className="min-h-[200px] flex-1 overflow-y-auto pr-1 space-y-0">
-                {/* Accent Colors Tab */}
-                {activeTab === 'accent' && (
-                  <div className="space-y-3">
-                    <h3 className={cn(
-                      "text-sm font-medium mb-3",
-                      isDark ? "text-white/80" : "text-gray-600"
-                    )}>
-                      Choose your accent color
-                    </h3>
-                    <div className="grid grid-cols-2 gap-3">
-                      {accentValues.map((accent) => (
-                        <AccentOption
-                          key={accent.id}
-                          accent={accent}
-                          isSelected={theme.accent === accent.id}
-                          onSelect={handleAccentChange}
-                          isDark={isDark}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
-
                 {/* Badge Colors Tab */}
                 {activeTab === 'badges' && (
                   <div className="space-y-3">
@@ -664,7 +558,7 @@ export default function ThemeToggle({ compact }: ThemeToggleProps) {
                   "text-xs",
                   isDark ? "text-white/60" : "text-gray-500"
                 )}>
-                  Current: {theme.mode} mode, {currentAccent.name}, {currentFont.name},{' '}
+                  Current: {theme.mode} mode, {currentFont.name},{' '}
                   {currentBackground.name}
                 </div>
                 <button
