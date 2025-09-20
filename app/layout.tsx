@@ -265,7 +265,7 @@ export default function RootLayout({
             logo: "https://aipista.app/brand.png",
             sameAs: [
               "https://x.com/byteHumi",
-              "https://github.com/NiladriHazra/AI-Pista"
+              "https://github.com/sankalp1806"
             ]
           })}
         </Script>
