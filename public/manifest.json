@@ -1,37 +1,46 @@
 {
-  "name": "AI Pista - AI Chat Platform",
-  "short_name": "AI Pista",
+  "name": "Ai Pista - AI Chat Platform",
+  "short_name": "Ai Pista",
   "description": "A powerful AI chat platform supporting multiple models with offline capabilities",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["productivity", "utilities", "education"],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/icons/icon-72x72.svg",
       "sizes": "72x72",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "/icons/icon-96x96.svg",
       "sizes": "96x96",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "/icons/icon-128x128.svg",
       "sizes": "128x128",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "/icons/icon-144x144.svg",
       "sizes": "144x144",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "/icons/icon-152x152.svg",
       "sizes": "152x152",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "/icons/icon-192x192.svg",
@@ -43,7 +52,7 @@
       "src": "/icons/icon-384x384.svg",
       "sizes": "384x384",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "/icons/icon-512x512.svg",
@@ -52,18 +61,10 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
-  "orientation": "portrait-primary",
-  "scope": "/",
-  "lang": "en",
-  "categories": ["productivity", "utilities", "education"],
   "shortcuts": [
     {
       "name": "New Chat",
-      "short_name": "New",
+      "short_name": "New Chat",
       "description": "Start a new conversation",
       "url": "/",
       "icons": [{ "src": "/icons/shortcut-new-chat.svg", "sizes": "96x96" }]
@@ -71,8 +72,8 @@
     {
       "name": "Settings",
       "short_name": "Settings",
-      "description": "Adjust app settings",
-      "url": "/settings",
+      "description": "Adjust app settings and API keys",
+      "url": "/",
       "icons": [{ "src": "/icons/shortcut-settings.svg", "sizes": "96x96" }]
     }
   ],
@@ -82,18 +83,17 @@
       "sizes": "1280x720",
       "type": "image/svg+xml",
       "form_factor": "wide",
-      "label": "Desktop Chat View"
+      "label": "Ai Pista Desktop Interface"
     },
     {
       "src": "/screenshots/mobile-narrow.svg",
       "sizes": "390x844",
       "type": "image/svg+xml",
       "form_factor": "narrow",
-      "label": "Mobile Chat View"
+      "label": "Ai Pista Mobile Interface"
     }
   ],
-  "prefer_related_applications": false,
   "edge_side_panel": {
-    "preferred_width": 400
+    "preferred_width": 480
   }
 }

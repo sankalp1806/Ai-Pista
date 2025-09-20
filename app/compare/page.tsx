@@ -467,7 +467,7 @@ export default function Home() {
                       : "border-rose-200/50 bg-white/95"
                   )}>
                     <Link
-                      href="/chat"
+                      href="/"
                       className={cn(
                         "inline-flex items-center justify-center h-9 w-9 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95",
                         isDark
@@ -504,7 +504,7 @@ export default function Home() {
             <div className="hidden lg:block">
               <HeaderBar
                 onOpenMenu={() => setMobileSidebarOpen(true)}
-                title="Ai Pista"
+                title="AI Pista"
                 githubOwner="sankalp1806"
                 githubRepo="Ai-Pista"
                 onOpenModelsModal={() => setModelsModalOpen(true)}
