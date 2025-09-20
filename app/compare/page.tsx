@@ -307,7 +307,7 @@ export default function Home() {
 
   useEffect(() => {
     setIsHydrated(true);
-    const t = setTimeout(() => setShowSplash(false), 350);
+    const t = setTimeout(() => setShowSplash(false), 1500); // Extended splash screen duration
     return () => clearTimeout(t);
   }, []);
 
@@ -351,7 +351,7 @@ export default function Home() {
 
       {showSplash && (
         <div className="fixed inset-0 z-[9999]">
-          <LaunchScreen backgroundClass={BACKGROUND_STYLES[theme.background].className} dismissed={isHydrated} />
+          <LaunchScreen backgroundClass={BACKGROUND_STYLES[theme.background].className} dismissed={!showSplash} />
         </div>
       )}
 
