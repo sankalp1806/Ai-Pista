@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useEffect, useState } from "react"
@@ -6,11 +7,7 @@ import GithubStar from '@/components/app/GithubStar'
 import SupportDropdown from '@/components/support-dropdown'
 import { Menu, X } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
-import { Testimonials } from '@/components/testimonials/Testimonials'
 import { CustomCrowd } from '@/components/Footer'
-// import { Instagram, Twitter, Linkedin, Menu, X } from "lucide-react"
-
-//uncomment the icons
 
 export default function StartupSprintLanding() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -145,7 +142,7 @@ export default function StartupSprintLanding() {
       )}
 
       {/* Hero Section */}
-      <div className="flex flex-col items-center justify-center min-h-[85vh] px-6 relative z-10">
+      <div className="flex flex-col items-center justify-center min-h-[90vh] px-6 relative z-10">
 
         {/* Main Heading */}
         <div className="text-center mb-8 ">
@@ -167,7 +164,7 @@ export default function StartupSprintLanding() {
               href="/compare"
               className="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[170px] px-6 py-3 rounded-full font-semibold tracking-wide bg-red-600 text-white hover:bg-red-500 transition-colors shadow"
             >
-              Compare Models
+              Start Chat
             </Link>
           </div>
         </div>
@@ -216,9 +213,22 @@ export default function StartupSprintLanding() {
       </div>
     </div>
     
-    {/* Large AI Pista text before footer */}
-    <div className="bg-black py-8 md:py-16 overflow-hidden">
-      <div className="animate-marquee whitespace-nowrap flex">
+    {/* Large AI PISTA text with reflection */}
+    <div className="bg-black py-8 md:py-16 overflow-hidden relative">
+      {/* Background reflection */}
+      <div 
+        className="absolute inset-0 z-0 opacity-20"
+        style={{
+          backgroundImage: "url('https://i.postimg.cc/vHqJkv1Q/Chat-GPT-Image-Aug-24-2025-01-01-36-PM.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center bottom', // Use bottom part for reflection
+          transform: 'scaleY(-1)', // Flip vertically
+          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 70%)',
+          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 70%)'
+        }}
+      />
+      {/* Marquee with text */}
+      <div className="animate-marquee whitespace-nowrap flex relative z-10">
         <h1
           className="text-[clamp(2.25rem,18vw,20rem)] text-white uppercase tracking-[0.06em] leading-none select-none"
           style={{ fontFamily: 'Impact, "Arial Black", "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Bold", sans-serif', fontWeight: 900, fontStretch: 'condensed' }}
