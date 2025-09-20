@@ -111,6 +111,14 @@ export async function POST(req: NextRequest) {
       }
 
       const textData = await res.text();
+      if (!textData) {
+        return NextResponse.json({
+          ok: false,
+          error: 'Empty response from Ollama API',
+          details: 'The Ollama server returned an empty response. Check if it is running correctly.',
+          status: 502,
+        }, { status: 502 });
+      }
       if (process.env.DEBUG_OLLAMA === '1') console.log(`Ollama API response text:`, textData.substring(0, 500));
 
       let data;

@@ -159,9 +159,9 @@ export default function StartupSprintLanding() {
         <div className="mb-6 flex items-center justify-center">
           <div className="bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-3 border border-white/20">
             <Sparkles className="w-4 h-4 text-white/80" />
-            <span className="text-white/80 text-sm font-medium">Backed by</span>
+            <span className="text-white/80 text-sm font-medium">All AI's</span>
             <div className="flex items-center gap-2">
-              <span className="text-white font-semibold text-sm">Sankalp</span>
+              <span className="text-white font-semibold text-sm">One Query</span>
             </div>
           </div>
         </div>
