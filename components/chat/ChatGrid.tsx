@@ -70,9 +70,6 @@ export default function ChatGrid({
   // Compute grid columns dynamically so expanded model can take full width
   const headerCols = useMemo(() => {
     if (headerTemplate) return headerTemplate;
-    if (selectedModels.length === 5) {
-      return "320px 320px 320px 320px 285px";
-    }
     
     const expandedCount = selectedModels.length - collapsedIds.length;
     
@@ -110,7 +107,7 @@ export default function ChatGrid({
       <div
         ref={scrollRef}
         className={cn(
-          "relative rounded-lg border px-3 lg:px-4 pt-2 overflow-x-auto flex-1 overflow-y-auto pb-28 scroll-stable-gutter",
+          "relative rounded-lg border overflow-x-auto flex-1 overflow-y-auto pb-28 scroll-stable-gutter",
           isDark 
             ? "border-white/5 bg-white/5"
             : "border-black/10 bg-black/5"
@@ -249,12 +246,11 @@ export default function ChatGrid({
 
             {pairs.map((row, i) => (
               <div key={i} className="space-y-3">
-                {/* User prompt: sticky to the right of the viewport */}
-                <div className="relative h-16 w-full pointer-events-none">
-                  <div className="absolute right-0 top-0 z-10 group flex gap-2 items-center pointer-events-auto">
-                    {/* Editing UI */}
-                    {editingIdx === i ? (
-                      <div className="min-w-0 max-w-[calc(100vw-2rem)]">
+                {/* User prompt as right-aligned red pill */}
+                <div className="flex justify-end relative">
+                    <div className="group flex gap-2 items-center justify-end sticky right-6 sm:right-8 z-10">
+                      {editingIdx === i ? (
+                        <div className="ml-auto">
                         <textarea
                           value={draft}
                           onChange={(e) => setDraft(e.target.value)}
@@ -309,38 +305,36 @@ export default function ChatGrid({
                           </button>
                         </div>
                       </div>
-                    ) : (
-                      <>
-                        <div className="hidden group-hover:flex gap-1.5 mr-2">
-                          <button
-                            onClick={() => {
-                              setEditingIdx(i);
-                              setDraft(row.user.content);
-                            }}
-                            className="icon-btn h-7 w-7 accent-focus"
-                            title="Edit message"
-                          >
-                            <Pencil size={14} />
-                          </button>
-                          <button
-                            onClick={() => setPendingDelete({ turnIndex: i })}
-                            className="icon-btn h-7 w-7 accent-focus"
-                            title="Delete message"
-                          >
-                            <Trash size={14} />
-                          </button>
-                          <CopyToClipboard getText={() => row.user.content} />
-                        </div>
-                        <div className="inline-flex items-center text-sm leading-relaxed px-3 py-3 rounded-md bg-[var(--accent-interactive-primary)] text-white shadow-[0_2px_10px_rgba(0,0,0,0.35)] max-w-[68ch] min-w-0">
-                          <span className="truncate whitespace-pre-wrap break-words">
+                      ) : (
+                        <div className="inline-flex items-center text-sm leading-relaxed px-3 py-3 rounded-md bg-[var(--accent-interactive-primary)] text-white shadow-[0_2px_10px_rgba(0,0,0,0.35)]">
+                          <span className="truncate whitespace-pre-wrap break-words max-w-[68ch]">
                             {row.user.content}
                           </span>
                         </div>
-                      </>
-                    )}
-                  </div>
+                      )}
+                      
+                      <div className="hidden group-hover:flex order-first gap-1.5 ">
+                        <button
+                          onClick={() => {
+                            setEditingIdx(i);
+                            setDraft(row.user.content);
+                          }}
+                          className="icon-btn h-7 w-7 accent-focus "
+                          title="Edit message"
+                        >
+                          <Pencil size={14} />
+                        </button>
+                        <button
+                          onClick={() => setPendingDelete({ turnIndex: i })}
+                          className="icon-btn h-7 w-7 accent-focus "
+                          title="Delete message"
+                        >
+                          <Trash size={14} />
+                        </button>
+                        <CopyToClipboard getText={() => row.user.content} />
+                      </div>
+                    </div>
                 </div>
-
 
                 <div
                   className="grid gap-3 items-stretch"
@@ -368,7 +362,7 @@ export default function ChatGrid({
                           {/* decorative overlay removed for cleaner look */}
                           {ans && String(ans.content || '').length > 0 && (
                             <div
-                              className={`absolute top-2 right-2 z-10 flex flex-col gap-2 ${
+                              className={`absolute top-2 right-6 sm:right-8 z-10 flex flex-col gap-2 ${
                                 isCollapsed
                                   ? 'opacity-0 pointer-events-none'
                                   : 'opacity-0 group-hover:opacity-100'
