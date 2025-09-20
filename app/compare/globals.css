@@ -46,37 +46,37 @@
 /* Light Theme - A futuristic light theme with cool grays and a strong blue accent */
 :root {
   --radius: 0.625rem;
-  --background: oklch(98% 0.005 240); /* Almost white with a slight cool tint */
-  --foreground: oklch(20% 0.02 250); /* Dark cool gray */
-  --card: oklch(95% 0.01 240);
-  --card-foreground: oklch(20% 0.02 250);
-  --popover: oklch(95% 0.01 240);
-  --popover-foreground: oklch(20% 0.02 250);
-  --primary: oklch(50% 0.25 265); /* Vibrant futuristic blue */
-  --primary-foreground: oklch(98% 0.005 240);
-  --secondary: oklch(90% 0.01 240);
-  --secondary-foreground: oklch(40% 0.02 250);
-  --muted: oklch(92% 0.01 240);
-  --muted-foreground: oklch(60% 0.01 250);
-  --accent: oklch(90% 0.01 240);
-  --accent-foreground: oklch(40% 0.02 250);
-  --destructive: oklch(60% 0.25 25); /* Muted but clear red/orange */
-  --border: oklch(85% 0.01 240);
-  --input: oklch(85% 0.01 240);
-  --ring: oklch(50% 0.25 265);
-  --chart-1: oklch(65% 0.2 265);
-  --chart-2: oklch(70% 0.18 200);
-  --chart-3: oklch(75% 0.15 280);
-  --chart-4: oklch(80% 0.12 160);
-  --chart-5: oklch(85% 0.1 300);
-  --sidebar: oklch(96% 0.005 240);
-  --sidebar-foreground: oklch(20% 0.02 250);
-  --sidebar-primary: oklch(50% 0.25 265);
-  --sidebar-primary-foreground: oklch(98% 0.005 240);
-  --sidebar-accent: oklch(92% 0.01 240);
-  --sidebar-accent-foreground: oklch(40% 0.02 250);
-  --sidebar-border: oklch(88% 0.01 240);
-  --sidebar-ring: oklch(50% 0.25 265);
+  --background: #C8BFB8; /* Almost white with a slight cool tint */
+  --foreground: #74523B; /* Dark cool gray */
+  --card: #BFB2A8;
+  --card-foreground: #74523B;
+  --popover: #C8BFB8;
+  --popover-foreground: #74523B;
+  --primary: #74523B; /* Vibrant futuristic blue */
+  --primary-foreground: #C8BFB8;
+  --secondary: #BFB2A8;
+  --secondary-foreground: #74523B;
+  --muted: #AF9D8E;
+  --muted-foreground: #74523B;
+  --accent: #BFB2A8;
+  --accent-foreground: #74523B;
+  --destructive: #74523B; /* Muted but clear red/orange */
+  --border: #CBCDCC;
+  --input: #CBCDCC;
+  --ring: #AF9D8E;
+  --chart-1: #74523B;
+  --chart-2: #AF9D8E;
+  --chart-3: #BFB2A8;
+  --chart-4: #C8BFB8;
+  --chart-5: #CBCDCC;
+  --sidebar: #C8BFB8;
+  --sidebar-foreground: #74523B;
+  --sidebar-primary: #74523B;
+  --sidebar-primary-foreground: #C8BFB8;
+  --sidebar-accent: #BFB2A8;
+  --sidebar-accent-foreground: #74523B;
+  --sidebar-border: #CBCDCC;
+  --sidebar-ring: #AF9D8E;
 
   --accent-primary: #007cf0;
   --accent-secondary: #0056b3;
