@@ -145,7 +145,7 @@ export default function StartupSprintLanding() {
       )}
 
       {/* Hero Section */}
-      <div className="flex flex-col items-center justify-center min-h-[80vh] px-6 relative z-10">
+      <div className="flex flex-col items-center justify-center min-h-[85vh] px-6 relative z-10">
 
         {/* Main Heading */}
         <div className="text-center mb-8 ">

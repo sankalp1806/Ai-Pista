@@ -108,8 +108,8 @@ const SupportDropdown: React.FC<SupportDropdownProps> = ({
       ref={dropdownRef}
       className={
         inline
-          ? "relative z-50"
-          : "fixed right-3 sm:right-6 z-50 bottom-24 sm:bottom-6"
+          ? "relative z-[100]"
+          : "fixed right-3 sm:right-6 z-[100] bottom-24 sm:bottom-6"
       }
       style={inline ? undefined : { paddingBottom: "env(safe-area-inset-bottom)" }}
     >
