@@ -247,8 +247,8 @@ export default function ChatGrid({
             {pairs.map((row, i) => (
               <div key={i} className="space-y-3">
                 {/* User prompt as right-aligned red pill */}
-                <div className="sticky right-0 flex justify-end">
-                    {editingIdx === i && (
+                <div className="px-2 flex justify-end sticky right-6 sm:right-8 z-10">
+                    {editingIdx === i ? (
                       <div className="ml-auto">
                         <textarea
                           value={draft}
@@ -304,8 +304,8 @@ export default function ChatGrid({
                           </button>
                         </div>
                       </div>
-                    )}
-                    <div className="group flex gap-2 items-center justify-end sticky right-6 sm:right-8 z-10">
+                    ) : (
+                    <div className="group flex gap-2 items-center justify-end">
                       <div className="inline-flex items-center text-sm leading-relaxed px-3 py-3 rounded-md bg-[var(--accent-interactive-primary)] text-white shadow-[0_2px_10px_rgba(0,0,0,0.35)]">
                         <span className="truncate whitespace-pre-wrap break-words max-w-[68ch]">
                           {row.user.content}
@@ -332,6 +332,7 @@ export default function ChatGrid({
                         <CopyToClipboard getText={() => row.user.content} />
                       </div>
                     </div>
+                    )}
                 </div>
 
                 <div
