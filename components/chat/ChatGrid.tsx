@@ -121,7 +121,7 @@ export default function ChatGrid({
             Select up to 5 models to compare.
           </div>
         ) : (
-          <div className="w-full space-y-3">
+          <div className="w-full space-y-3 pr-3 lg:pr-4">
             {/* Header row: model labels */}
             <div
               className={cn(
