@@ -24,7 +24,7 @@ export type ChatGridProps = {
   selectedModels: AiModel[];
   headerTemplate: string;
   collapsedIds: string[];
-  setCollapsedIds: (updater: (prev: string[]) => void) => void;
+  setCollapsedIds: (updater: (prev: string[]) => string[]) => void;
   loadingIds: string[];
   pairs: { user: ChatMessage; answers: ChatMessage[] }[];
   onEditUser: (turnIndex: number, newText: string) => void;
@@ -246,10 +246,12 @@ export default function ChatGrid({
 
             {pairs.map((row, i) => (
               <div key={i} className="space-y-3">
-                {/* User prompt as right-aligned red pill */}
-                <div className="flex justify-end sticky right-6 sm:right-8 z-10">
+                {/* User prompt: sticky to the right of the viewport */}
+                <div className="relative h-16 w-full">
+                  <div className="absolute right-4 top-0 z-10 group flex gap-2 items-center pointer-events-auto">
+                    {/* Editing UI */}
                     {editingIdx === i ? (
-                      <div className="ml-auto">
+                      <div className="min-w-0 max-w-[calc(100vw-2rem)]">
                         <textarea
                           value={draft}
                           onChange={(e) => setDraft(e.target.value)}
@@ -296,7 +298,7 @@ export default function ChatGrid({
                             className={cn(
                               "px-3 py-1 text-xs rounded transition-colors",
                               isDark 
-                                ? "bg-white/10 hover:bg-white/20 text-white" 
+                                ? "bg-white/10 hover:bg-white/20 text-white"
                                 : "bg-black/10 hover:bg-black/20 text-gray-700"
                             )}
                           >
@@ -305,38 +307,40 @@ export default function ChatGrid({
                         </div>
                       </div>
                     ) : (
-                    <div className="group flex gap-2 items-center justify-end">
-                      <div className="inline-flex items-center text-sm leading-relaxed px-3 py-3 rounded-md bg-[var(--accent-interactive-primary)] text-white shadow-[0_2px_10px_rgba(0,0,0,0.35)]">
-                        <span className="truncate whitespace-pre-wrap break-words max-w-[68ch]">
-                          {row.user.content}
-                        </span>
-                      </div>
-                      <div className="hidden group-hover:flex order-first gap-1.5 ">
-                        <button
-                          onClick={() => {
-                            setEditingIdx(i);
-                            setDraft(row.user.content);
-                          }}
-                          className="icon-btn h-7 w-7 accent-focus "
-                          title="Edit message"
-                        >
-                          <Pencil size={14} />
-                        </button>
-                        <button
-                          onClick={() => setPendingDelete({ turnIndex: i })}
-                          className="icon-btn h-7 w-7 accent-focus "
-                          title="Delete message"
-                        >
-                          <Trash size={14} />
-                        </button>
-                        <CopyToClipboard getText={() => row.user.content} />
-                      </div>
-                    </div>
+                      <>
+                        <div className="hidden group-hover:flex gap-1.5 mr-2">
+                          <button
+                            onClick={() => {
+                              setEditingIdx(i);
+                              setDraft(row.user.content);
+                            }}
+                            className="icon-btn h-7 w-7 accent-focus"
+                            title="Edit message"
+                          >
+                            <Pencil size={14} />
+                          </button>
+                          <button
+                            onClick={() => setPendingDelete({ turnIndex: i })}
+                            className="icon-btn h-7 w-7 accent-focus"
+                            title="Delete message"
+                          >
+                            <Trash size={14} />
+                          </button>
+                          <CopyToClipboard getText={() => row.user.content} />
+                        </div>
+                        <div className="inline-flex items-center text-sm leading-relaxed px-3 py-3 rounded-md bg-[var(--accent-interactive-primary)] text-white shadow-[0_2px_10px_rgba(0,0,0,0.35)] max-w-[68ch] min-w-0">
+                          <span className="truncate whitespace-pre-wrap break-words">
+                            {row.user.content}
+                          </span>
+                        </div>
+                      </>
                     )}
+                  </div>
                 </div>
 
+
                 <div
-                  className="grid gap-3 items-stretch"
+                  className="grid gap-3 items-stretch pr-4"
                   style={{ gridTemplateColumns: headerCols }}
                 >
                   {selectedModels.map((m) => {
@@ -361,7 +365,7 @@ export default function ChatGrid({
                           {/* decorative overlay removed for cleaner look */}
                           {ans && String(ans.content || '').length > 0 && (
                             <div
-                              className={`absolute top-2 right-6 sm:right-8 z-10 flex flex-col gap-2 ${
+                              className={`absolute top-2 right-2 z-10 flex flex-col gap-2 ${
                                 isCollapsed
                                   ? 'opacity-0 pointer-events-none'
                                   : 'opacity-0 group-hover:opacity-100'
