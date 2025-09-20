@@ -99,9 +99,9 @@ export default function StartupSprintLanding() {
 
       {/* Navbar */}
       <nav className="flex items-center justify-between px-6 pt-7 relative max-w-7xl mx-auto z-30">
-        <div className="flex items-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/Web_logo.svg" alt="Ai Pista" className="h-10 md:h-12 lg:h-14 w-auto" />
+        <div className="flex items-center gap-2">
+          <Image src="/brand.png" alt="Ai Pista Logo" width={56} height={56} className="h-10 w-10 md:h-12 md:w-12 lg:h-14 lg:w-14" />
+          <span className="text-xl md:text-2xl font-bold text-white">Ai Pista</span>
         </div>
 
         <div className="hidden md:flex items-center gap-8">
