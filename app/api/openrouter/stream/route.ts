@@ -230,6 +230,7 @@ export async function POST(req: NextRequest) {
                 return;
               }
               try {
+                if (!payload) continue;
                 const json = JSON.parse(payload);
                 const delta = json?.choices?.[0]?.delta;
                 let text = '';
