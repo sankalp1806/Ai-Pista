@@ -1,4 +1,5 @@
 
+
 "use client"
 
 import { useEffect, useState } from "react"
@@ -86,7 +87,7 @@ export default function StartupSprintLanding() {
     <>
     <div
       className="min-h-screen text-white relative overflow-hidden bg-cover bg-center bg-no-repeat overflow-x-hidden no-scrollbar"
-      style={{ backgroundImage: "url('https://i.postimg.cc/vHqJkv1Q/Chat-GPT-Image-Aug-24-2025-01-01-36-PM.png')" }}
+      style={{backgroundImage: "url('/Purple Space image.png')"}}
     >
 
       {/* Navbar */}

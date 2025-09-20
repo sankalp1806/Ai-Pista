@@ -61,11 +61,11 @@ export default function AboutPage() {
       {/* Background Image */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <Image
-          src="https://storage.googleapis.com/aip-dev-sandbox-b91c9.appspot.com/public/bg-about.png"
-          alt="About page background"
+          src="/Purple Space image.png"
+          alt="Purple space background"
           layout="fill"
           objectFit="cover"
-          data-ai-hint="night sky"
+          data-ai-hint="purple space"
         />
       </div>
 
