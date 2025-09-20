@@ -306,9 +306,14 @@ export default function Home() {
   };
 
   useEffect(() => {
+    if (isHydrated) {
+      const t = setTimeout(() => setShowSplash(false), 1500); // Extended splash screen duration
+      return () => clearTimeout(t);
+    }
+  }, [isHydrated]);
+
+  useEffect(() => {
     setIsHydrated(true);
-    const t = setTimeout(() => setShowSplash(false), 1500); // Extended splash screen duration
-    return () => clearTimeout(t);
   }, []);
 
   return (
