@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState, useRef, useEffect } from "react";
 import QRCode from "react-qr-code";
@@ -108,8 +108,8 @@ const SupportDropdown: React.FC<SupportDropdownProps> = ({
       ref={dropdownRef}
       className={
         inline
-          ? "relative z-[100]"
-          : "fixed right-3 sm:right-6 z-[100] bottom-24 sm:bottom-6"
+          ? "relative z-[9999]"
+          : "fixed right-3 sm:right-6 z-[9999] bottom-24 sm:bottom-6"
       }
       style={inline ? undefined : { paddingBottom: "env(safe-area-inset-bottom)" }}
     >
@@ -206,7 +206,7 @@ const SupportDropdown: React.FC<SupportDropdownProps> = ({
                 fgColor="#222"
               />
               <div className="mt-2 text-xs text-center text-gray-500 w-full break-words">
-                UPI ID: {" "}
+                UPI ID:{" "}
                 <span className="font-mono text-xs text-gray-800 break-all">
                   {UPI_ID}
                 </span>
