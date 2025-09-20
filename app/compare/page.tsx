@@ -53,21 +53,21 @@ export default function Home() {
     }
   }, [user, loading, isHydrated, router]); */
 
-  const [selectedIds, setSelectedIds] = useLocalStorage<string[]>('ai-fiesta:selected-models', [
+  const [selectedIds, setSelectedIds] = useLocalStorage<string[]>('ai-pista:selected-models', [
     'gemini-2.5-pro',
     'unstable-gpt-5-chat',
     'unstable-claude-sonnet-4',
     'perplexity/llama-3-sonar-large-32k-online',
     'unstable-grok-4',
   ]);
-  const [keys] = useLocalStorage<ApiKeys>('ai-fiesta:keys', {});
-  const [threads, setThreads] = useLocalStorage<ChatThread[]>('ai-fiesta:threads', []);
-  const [activeId, setActiveId] = useLocalStorage<string | null>('ai-fiesta:active-thread', null);
-  const [sidebarOpen, setSidebarOpen] = useLocalStorage<boolean>('ai-fiesta:sidebar-open', true);
+  const [keys] = useLocalStorage<ApiKeys>('ai-pista:keys', {});
+  const [threads, setThreads] = useLocalStorage<ChatThread[]>('ai-pista:threads', []);
+  const [activeId, setActiveId] = useLocalStorage<string | null>('ai-pista:active-thread', null);
+  const [sidebarOpen, setSidebarOpen] = useLocalStorage<boolean>('ai-pista:sidebar-open', true);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [modelsModalOpen, setModelsModalOpen] = useState(false);
   const [selectedVoice, setSelectedVoice] = useLocalStorage<string>(
-    'ai-fiesta:selected-voice',
+    'ai-pista:selected-voice',
     'alloy',
   );
 
@@ -144,7 +144,7 @@ export default function Home() {
   const anyLoading = loadingIds.length > 0;
 
   const [firstNoteDismissed, setFirstNoteDismissed] = useLocalStorage<boolean>(
-    'ai-fiesta:first-visit-note-dismissed',
+    'ai-pista:first-visit-note-dismissed',
     false,
   );
   const showFirstVisitNote =
@@ -495,7 +495,7 @@ export default function Home() {
                     <CustomModels compact />
                     <ThemeToggle compact />
                     <Settings compact />
-                    <GithubStar owner="NiladriHazra" repo="AI-Pista" />
+                    <GithubStar owner="NiladriHazra" repo="Ai-Pista" />
                   </div>
                 )}
               </div>
@@ -506,7 +506,7 @@ export default function Home() {
                 onOpenMenu={() => setMobileSidebarOpen(true)}
                 title="AI Pista"
                 githubOwner="NiladriHazra"
-                githubRepo="AI-Pista"
+                githubRepo="Ai-Pista"
                 onOpenModelsModal={() => setModelsModalOpen(true)}
                 className="-mr-3 sm:mr-0"
               />
@@ -594,3 +594,4 @@ export default function Home() {
     </div>
   );
 }
+

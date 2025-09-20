@@ -34,7 +34,7 @@ describe('InstallPrompt', () => {
       beforeInstallPromptHandler(mockBeforeInstallPromptEvent);
     }
 
-    expect(screen.getByText('Install Open Fiesta')).toBeInTheDocument();
+    expect(screen.getByText('Install Ai Pista')).toBeInTheDocument();
     expect(screen.getByText('Get the app experience')).toBeInTheDocument();
     expect(screen.getByText('Faster loading')).toBeInTheDocument();
     expect(screen.getByText('Works offline')).toBeInTheDocument();
@@ -85,7 +85,7 @@ describe('InstallPrompt', () => {
     
     render(<InstallPrompt />);
     
-    expect(screen.queryByText('Install Open Fiesta')).not.toBeInTheDocument();
+    expect(screen.queryByText('Install Ai Pista')).not.toBeInTheDocument();
   });
 
   it('should show loading state during installation', async () => {
@@ -111,3 +111,4 @@ describe('InstallPrompt', () => {
     expect(installButton).toBeDisabled();
   });
 });
+

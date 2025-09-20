@@ -42,7 +42,7 @@ describe('InstallBanner', () => {
     });
 
     await waitFor(() => {
-      expect(screen.getByText('Install Open Fiesta for a better experience')).toBeInTheDocument();
+      expect(screen.getByText('Install Ai Pista for a better experience')).toBeInTheDocument();
     });
 
     jest.useRealTimers();
@@ -70,7 +70,7 @@ describe('InstallBanner', () => {
 
     // Wait for banner to appear
     await waitFor(() => {
-      expect(screen.getByText('Install Open Fiesta for a better experience')).toBeInTheDocument();
+      expect(screen.getByText('Install Ai Pista for a better experience')).toBeInTheDocument();
     });
 
     const dismissButton = screen.getByLabelText('Dismiss permanently');
@@ -136,7 +136,7 @@ describe('InstallBanner', () => {
 
     // Wait for banner to appear and find install button
     await waitFor(() => {
-      expect(screen.getByText('Install Open Fiesta for a better experience')).toBeInTheDocument();
+      expect(screen.getByText('Install Ai Pista for a better experience')).toBeInTheDocument();
     });
 
     const installButton = screen.getByText('Install');
@@ -207,3 +207,4 @@ describe('InstallBanner', () => {
     jest.useRealTimers();
   });
 });
+

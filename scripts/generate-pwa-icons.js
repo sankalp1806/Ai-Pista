@@ -20,7 +20,7 @@ function createPlaceholderIcon(size) {
   const svg = `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
   <rect width="${size}" height="${size}" fill="#000000" rx="${size * 0.1}"/>
   <circle cx="${size/2}" cy="${size/2}" r="${size * 0.3}" fill="#ffffff" opacity="0.9"/>
-  <text x="${size/2}" y="${size/2 + size * 0.05}" text-anchor="middle" fill="#000000" font-family="Arial, sans-serif" font-size="${size * 0.15}" font-weight="bold">OF</text>
+  <text x="${size/2}" y="${size/2 + size * 0.05}" text-anchor="middle" fill="#000000" font-family="Arial, sans-serif" font-size="${size * 0.15}" font-weight="bold">AP</text>
 </svg>`;
   return svg;
 }
@@ -76,7 +76,7 @@ fs.writeFileSync('public/icons/shortcut-settings.svg', shortcutSvg2);
 const desktopScreenshot = `<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
   <rect width="1280" height="720" fill="#f8f9fa"/>
   <rect x="0" y="0" width="1280" height="60" fill="#000000"/>
-  <text x="640" y="35" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Open Fiesta - AI Chat Platform</text>
+  <text x="640" y="35" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Ai Pista - AI Chat Platform</text>
   <rect x="40" y="100" width="1200" height="580" fill="#ffffff" stroke="#e0e0e0" stroke-width="1" rx="8"/>
   <text x="640" y="400" text-anchor="middle" fill="#666666" font-family="Arial, sans-serif" font-size="24">Desktop Chat Interface</text>
 </svg>`;
@@ -84,7 +84,7 @@ const desktopScreenshot = `<svg width="1280" height="720" viewBox="0 0 1280 720"
 const mobileScreenshot = `<svg width="390" height="844" viewBox="0 0 390 844" xmlns="http://www.w3.org/2000/svg">
   <rect width="390" height="844" fill="#f8f9fa"/>
   <rect x="0" y="0" width="390" height="60" fill="#000000"/>
-  <text x="195" y="35" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Open Fiesta</text>
+  <text x="195" y="35" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Ai Pista</text>
   <rect x="20" y="80" width="350" height="724" fill="#ffffff" stroke="#e0e0e0" stroke-width="1" rx="8"/>
   <text x="195" y="450" text-anchor="middle" fill="#666666" font-family="Arial, sans-serif" font-size="18">Mobile Chat Interface</text>
 </svg>`;

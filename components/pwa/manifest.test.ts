@@ -26,8 +26,8 @@ describe('PWA Manifest', () => {
   });
 
   it('should have correct basic properties', () => {
-    expect(manifest.name).toBe('AI Pista - AI Chat Platform');
-    expect(manifest.short_name).toBe('AI Pista');
+    expect(manifest.name).toBe('Ai Pista - AI Chat Platform');
+    expect(manifest.short_name).toBe('Ai Pista');
     expect(manifest.start_url).toBe('/');
     expect(manifest.display).toBe('standalone');
     expect(manifest.background_color).toBe('#000000');
@@ -157,3 +157,4 @@ describe('Browser Configuration', () => {
     expect(browserconfigContent).toContain('<TileColor>#000000</TileColor>');
   });
 });
+

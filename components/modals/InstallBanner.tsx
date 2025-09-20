@@ -153,7 +153,7 @@ export const InstallBanner: React.FC<InstallBannerProps> = ({
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium">
-                  Install AI Pista for a better experience
+                  Install Ai Pista for a better experience
                 </p>
                 <p className="text-xs text-blue-100">
                   Faster loading, offline access, and push notifications
@@ -204,3 +204,4 @@ export const InstallBanner: React.FC<InstallBannerProps> = ({
 };
 
 export default InstallBanner;
+

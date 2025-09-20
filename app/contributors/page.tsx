@@ -11,19 +11,19 @@ import { Badge } from "@/components/ui/Badge";
 import { CircleDot, CircleDotDashed, GithubIcon, Undo2 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "Aura Farmers of Open-Fiesta",
-    description: "Meet the amazing aura farmers who nurture the energy behind Open-Fiesta",
+    title: "Aura Farmers of Ai-Pista",
+    description: "Meet the amazing aura farmers who nurture the energy behind Ai-Pista",
 };
 
 
 async function getContributors(): Promise<Contributor[]> {
     try {
         const response = await fetch(
-            "https://api.github.com/repos/NiladriHazra/Open-Fiesta/contributors",
+            "https://api.github.com/repos/NiladriHazra/Ai-Pista/contributors",
             {
                 headers: {
                     Accept: "application/vnd.github.v3+json",
-                    "User-Agent": "Open-Fiesta-Web-App",
+                    "User-Agent": "Ai-Pista-Web-App",
                 },
                 next: { revalidate: 600 },
             }
@@ -67,7 +67,7 @@ export default async function Contributors() {
                     <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-12 px-6 pt-2">
                         <div className="flex flex-col items-center justify-center gap-4 text-center">
                             <div className="flex items-center justify-center gap-6 text-sm text-white/90">
-                                <Link href={"https://github.com/NiladriHazra/Open-Fiesta"} target="_blank" rel="noopener noreferrer">
+                                <Link href={"https://github.com/NiladriHazra/Ai-Pista"} target="_blank" rel="noopener noreferrer">
                                     <Badge variant="secondary" className="gap-2 mb-6 p-[6px]">
                                         <GithubIcon className="h-3 w-3" />
                                         Open Source
@@ -84,7 +84,7 @@ export default async function Contributors() {
                                 Lead Aura Farmers
                             </h1>
                             <p className="text-muted-foreground max-w-md text-lg">
-                                The farmers who cultivated the most auras for Open-Fiesta
+                                The farmers who cultivated the most auras for Ai-Pista
                             </p>
                         </div>
 
@@ -141,7 +141,7 @@ export default async function Contributors() {
                             Aura Farming Community
                         </h2>
                         <p className="text-white/70 max-w-md text-base">
-                            Every aura sown matters. Meet the community behind Open-Fiesta.
+                            Every aura sown matters. Meet the community behind Ai-Pista.
                         </p>
                     </div>
 
@@ -191,7 +191,7 @@ export default async function Contributors() {
                     <div className="flex gap-4">
                         <Button asChild variant="default" size="lg">
                             <Link
-                                href="https://github.com/NiladriHazra/Open-Fiesta"
+                                href="https://github.com/NiladriHazra/Ai-Pista"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -201,7 +201,7 @@ export default async function Contributors() {
                         </Button>
                         <Button asChild variant="secondary" size="lg">
                             <Link
-                                href="https://github.com/NiladriHazra/Open-Fiesta/issues"
+                                href="https://github.com/NiladriHazra/Ai-Pista/issues"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -215,3 +215,4 @@ export default async function Contributors() {
         </>
     );
 }
+

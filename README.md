@@ -264,7 +264,7 @@ AI Pista supports local Ollama models. To use Ollama:
    - The system will validate that the model exists in your Ollama instance
 
 3. **Docker Networking**:
-   - If running AI Pista in Docker, use `http://host.docker.internal:11434` as the Ollama URL
+   - If running Ai Pista in Docker, use `http://host.docker.internal:11434` as the Ollama URL
    - This allows the Docker container to communicate with Ollama running on your host machine
 
 4. **Select and Use**:
@@ -354,7 +354,7 @@ We welcome contributions of all kinds: bug fixes, features, docs, and examples.
 
 - **Issue reporting**
 
-Thank you for helping improve AI Pista!
+Thank you for helping improve Ai Pista!
 
 ## License
 
@@ -363,3 +363,4 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 ## Acknowledgements
 
 - Model access via OpenRouter and Google
+
