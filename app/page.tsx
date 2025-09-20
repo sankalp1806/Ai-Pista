@@ -163,8 +163,8 @@ export default function StartupSprintLanding() {
 
         {/* Main Heading */}
         <div className="text-center mb-8 ">
-          <h1 className="text-3xl md:text-8xl font-semibold tracking-tight text-white mb-2">Free, open-source</h1>
-          <h2 className="text-3xl md:text-8xl font-semibold tracking-tight text-white/80">Access to all models.</h2>
+          <h1 className="text-3xl md:text-8xl font-semibold tracking-tight text-white mb-2">Why Choose Only 6 AI</h1>
+          <h2 className="text-3xl md:text-8xl font-semibold tracking-tight text-white/80">When You Can Command Them All?</h2>
         </div>
 
         {/* Subtext */}
@@ -231,16 +231,22 @@ export default function StartupSprintLanding() {
     </div>
     
     {/* Large AI Pista text before footer */}
-    <div className="bg-black py-8 md:py-16 flex items-center justify-center overflow-hidden">
-      <h1
-        className="text-[clamp(2.25rem,18vw,20rem)] text-white uppercase tracking-[0.06em] leading-none select-none animate-pulse text-center whitespace-nowrap max-w-full"
-        style={{ fontFamily: 'Impact, "Arial Black", "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Bold", sans-serif', fontWeight: 900, fontStretch: 'condensed' }}
-      >
-        AI PISTA
-      </h1>
+    <div className="bg-black py-8 md:py-16 overflow-hidden">
+      <div className="animate-marquee whitespace-nowrap flex">
+        <h1
+          className="text-[clamp(2.25rem,18vw,20rem)] text-white uppercase tracking-[0.06em] leading-none select-none"
+          style={{ fontFamily: 'Impact, "Arial Black", "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Bold", sans-serif', fontWeight: 900, fontStretch: 'condensed' }}
+        >
+          &nbsp;AI PISTA&nbsp;
+        </h1>
+        <h1
+          className="text-[clamp(2.25rem,18vw,20rem)] text-white uppercase tracking-[0.06em] leading-none select-none"
+          style={{ fontFamily: 'Impact, "Arial Black", "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Bold", sans-serif', fontWeight: 900, fontStretch: 'condensed' }}
+        >
+          &nbsp;AI PISTA&nbsp;
+        </h1>
+      </div>
     </div>
-    
-    <CustomCrowd />
     </>
   )
 }

@@ -1110,15 +1110,11 @@ body.light * {
 
 /* Marquee animations for Testimonials */
 @keyframes marquee-x {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-@keyframes marquee-y {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
 }
 .animate-marquee {
-  animation: marquee-x var(--duration, 40s) linear infinite;
+  animation: marquee-x 40s linear infinite;
   will-change: transform;
 }
 .animate-marquee-vertical {
