@@ -22,7 +22,7 @@ export default function CustomModels({ compact }: CustomModelsProps) {
   const [validMsg, setValidMsg] = useState<string | null>(null);
   const [validating, setValidating] = useState(false);
   const [validState, setValidState] = useState<null | 'ok' | 'fail' | 'error'>(null);
-  const [keys] = useLocalStorage<ApiKeys>('ai-fiesta:keys', {});
+  const [keys] = useLocalStorage<ApiKeys>('ai-pista:keys', {});
   // Always use keys.ollama for Ollama base URL (never keys.ollamaUrl or other variants)
   // This ensures consistency with Settings and avoids stale values.
 

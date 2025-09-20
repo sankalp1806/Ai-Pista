@@ -23,7 +23,7 @@ type Props = {
 
 export default function HeaderBar({
   onOpenMenu,
-  title = 'Open Fiesta',
+  title = 'AI Pista',
   githubOwner,
   githubRepo,
   className,
@@ -75,7 +75,7 @@ export default function HeaderBar({
         <h1 className="text-xl md:text-2xl font-extrabold tracking-tight select-none pointer-events-none inline-flex items-center justify-center">
           <Image
             src={isDark ? "/Web_logo.svg" : "/Web_logo_light.svg"}
-            alt="Open Fiesta logo"
+            alt="AI Pista logo"
             width={100}
             height={100}
             className="h-6 md:h-8 lg:h-10 w-auto"

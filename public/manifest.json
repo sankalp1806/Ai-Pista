@@ -1,7 +1,57 @@
 {
-  "name": "Open Fiesta - AI Chat Platform",
-  "short_name": "Open Fiesta",
+  "name": "AI Pista - AI Chat Platform",
+  "short_name": "AI Pista",
   "description": "A powerful AI chat platform supporting multiple models with offline capabilities",
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.svg",
+      "sizes": "72x72",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-96x96.svg",
+      "sizes": "96x96",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-128x128.svg",
+      "sizes": "128x128",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-144x144.svg",
+      "sizes": "144x144",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-152x152.svg",
+      "sizes": "152x152",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-384x384.svg",
+      "sizes": "384x384",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
@@ -10,82 +60,20 @@
   "scope": "/",
   "lang": "en",
   "categories": ["productivity", "utilities", "education"],
-  "icons": [
-    {
-      "src": "/icons/icon-72x72.svg",
-      "sizes": "72x72",
-      "type": "image/svg+xml",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/icons/icon-96x96.svg",
-      "sizes": "96x96",
-      "type": "image/svg+xml",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/icons/icon-128x128.svg",
-      "sizes": "128x128",
-      "type": "image/svg+xml",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/icons/icon-144x144.svg",
-      "sizes": "144x144",
-      "type": "image/svg+xml",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/icons/icon-152x152.svg",
-      "sizes": "152x152",
-      "type": "image/svg+xml",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/icons/icon-192x192.svg",
-      "sizes": "192x192",
-      "type": "image/svg+xml",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/icons/icon-384x384.svg",
-      "sizes": "384x384",
-      "type": "image/svg+xml",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/icons/icon-512x512.svg",
-      "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "maskable any"
-    }
-  ],
   "shortcuts": [
     {
       "name": "New Chat",
-      "short_name": "New Chat",
-      "description": "Start a new AI conversation",
-      "url": "/chat",
-      "icons": [
-        {
-          "src": "/icons/shortcut-new-chat.svg",
-          "sizes": "96x96",
-          "type": "image/svg+xml"
-        }
-      ]
+      "short_name": "New",
+      "description": "Start a new conversation",
+      "url": "/",
+      "icons": [{ "src": "/icons/shortcut-new-chat.svg", "sizes": "96x96" }]
     },
     {
       "name": "Settings",
       "short_name": "Settings",
-      "description": "Configure app settings",
-      "url": "/?settings=true",
-      "icons": [
-        {
-          "src": "/icons/shortcut-settings.svg",
-          "sizes": "96x96",
-          "type": "image/svg+xml"
-        }
-      ]
+      "description": "Adjust app settings",
+      "url": "/settings",
+      "icons": [{ "src": "/icons/shortcut-settings.svg", "sizes": "96x96" }]
     }
   ],
   "screenshots": [
@@ -94,14 +82,14 @@
       "sizes": "1280x720",
       "type": "image/svg+xml",
       "form_factor": "wide",
-      "label": "Open Fiesta desktop interface"
+      "label": "Desktop Chat View"
     },
     {
       "src": "/screenshots/mobile-narrow.svg",
       "sizes": "390x844",
       "type": "image/svg+xml",
       "form_factor": "narrow",
-      "label": "Open Fiesta mobile interface"
+      "label": "Mobile Chat View"
     }
   ],
   "prefer_related_applications": false,

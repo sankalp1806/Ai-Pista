@@ -46,8 +46,8 @@ export interface PushNotificationConfig {
  */
 export function getPWAConfig(): PWAConfig {
   return {
-    name: process.env.NEXT_PUBLIC_PWA_NAME || 'Open Fiesta - AI Chat Platform',
-    shortName: process.env.NEXT_PUBLIC_PWA_SHORT_NAME || 'Open Fiesta',
+    name: process.env.NEXT_PUBLIC_PWA_NAME || 'AI Pista - AI Chat Platform',
+    shortName: process.env.NEXT_PUBLIC_PWA_SHORT_NAME || 'AI Pista',
     themeColor: process.env.NEXT_PUBLIC_PWA_THEME_COLOR || '#000000',
     backgroundColor: process.env.NEXT_PUBLIC_PWA_BACKGROUND_COLOR || '#000000',
     display: (process.env.NEXT_PUBLIC_PWA_DISPLAY as PWAConfig['display']) || 'standalone',
@@ -214,8 +214,8 @@ export const PWAFeatures = {
  * Default PWA manifest data
  */
 export const DEFAULT_MANIFEST = {
-  name: 'Open Fiesta - AI Chat Platform',
-  short_name: 'Open Fiesta',
+  name: 'AI Pista - AI Chat Platform',
+  short_name: 'AI Pista',
   description: 'A powerful AI chat platform supporting multiple models with offline capabilities',
   start_url: '/',
   display: 'standalone' as const,

@@ -1,16 +1,16 @@
-# Open-Fiesta
+# AI Pista
 
 <video controls poster="./public/osfiesta.png" width="800">
-  <source src="./public/OSFiesta.mp4" type="video/mp4" />
-  <a href="./public/OSFiesta.mp4">
-    <img src="./public/osfiesta.png" alt="Open-Fiesta preview" />
+  <source src="./public/OSPista.mp4" type="video/mp4" />
+  <a href="./public/OSPista.mp4">
+    <img src="./public/osfiesta.png" alt="AI Pista preview" />
   </a>
   Your browser does not support the video tag.
 </video>
 
 <!-- Fallback link for renderers that don't support <video> -->
 
-[![Open-Fiesta](public/osfiesta.png)](public/OSFiesta.mp4)
+[![AI Pista](public/osfiesta.png)](public/OSPista.mp4)
 
 An open-source, multi-model AI chat playground built with Next.js App Router. Switch between providers and models, compare outputs side-by-side, and use optional web search and image attachments.
 
@@ -249,7 +249,7 @@ Enable a safe, local-only bypass to develop without authenticating.
 
 ## Ollama Support
 
-Open-Fiesta supports local Ollama models. To use Ollama:
+AI Pista supports local Ollama models. To use Ollama:
 
 1. **Configure Ollama**:
    - Ensure Ollama is running and accessible: `ollama serve`
@@ -264,7 +264,7 @@ Open-Fiesta supports local Ollama models. To use Ollama:
    - The system will validate that the model exists in your Ollama instance
 
 3. **Docker Networking**:
-   - If running Open-Fiesta in Docker, use `http://host.docker.internal:11434` as the Ollama URL
+   - If running AI Pista in Docker, use `http://host.docker.internal:11434` as the Ollama URL
    - This allows the Docker container to communicate with Ollama running on your host machine
 
 4. **Select and Use**:
@@ -311,7 +311,7 @@ This project includes comprehensive Docker support for both development and prod
 
 ## Notes on DeepSeek R1
 
-Open-Fiesta post-processes DeepSeek R1 outputs to remove reasoning tags and convert Markdown to plain text for readability while preserving content.
+AI Pista post-processes DeepSeek R1 outputs to remove reasoning tags and convert Markdown to plain text for readability while preserving content.
 
 ## Contributing
 
@@ -354,7 +354,7 @@ We welcome contributions of all kinds: bug fixes, features, docs, and examples.
 
 - **Issue reporting**
 
-Thank you for helping improve Open‑Fiesta!
+Thank you for helping improve AI Pista!
 
 ## License
 

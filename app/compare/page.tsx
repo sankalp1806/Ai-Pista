@@ -46,19 +46,19 @@ export default function Home() {
   const [editingProject, setEditingProject] = useState<Project | null>(null);
   const backgroundClass = BACKGROUND_STYLES[theme.background].className;
 
-  // Redirect to signin if not authenticated (wait for auth to finish loading)
-  useEffect(() => {
+  // Redirect to signin if not authenticated (wait for auth to finish loading) - REMOVED
+  /* useEffect(() => {
     if (isHydrated && !loading && !user) {
       router.push('/signin');
     }
-  }, [user, loading, isHydrated, router]);
+  }, [user, loading, isHydrated, router]); */
 
   const [selectedIds, setSelectedIds] = useLocalStorage<string[]>('ai-fiesta:selected-models', [
-    'open-gpt-5-nano', // GPT-5 Nano
-    'open-midijourney', // Midjourney
-    'open-evil',
-    'open-mistral', // Mistral Small 3.1
-    'open-llamascout', // Llama Scout
+    'gemini-2.5-pro',
+    'unstable-gpt-5-chat',
+    'unstable-claude-sonnet-4',
+    'perplexity/llama-3-sonar-large-32k-online',
+    'unstable-grok-4',
   ]);
   const [keys] = useLocalStorage<ApiKeys>('ai-fiesta:keys', {});
   const [threads, setThreads] = useLocalStorage<ChatThread[]>('ai-fiesta:threads', []);
@@ -495,7 +495,7 @@ export default function Home() {
                     <CustomModels compact />
                     <ThemeToggle compact />
                     <Settings compact />
-                    <GithubStar owner="NiladriHazra" repo="Open-Fiesta" />
+                    <GithubStar owner="NiladriHazra" repo="AI-Pista" />
                   </div>
                 )}
               </div>
@@ -504,9 +504,9 @@ export default function Home() {
             <div className="hidden lg:block">
               <HeaderBar
                 onOpenMenu={() => setMobileSidebarOpen(true)}
-                title="Open Fiesta"
+                title="AI Pista"
                 githubOwner="NiladriHazra"
-                githubRepo="Open-Fiesta"
+                githubRepo="AI-Pista"
                 onOpenModelsModal={() => setModelsModalOpen(true)}
                 className="-mr-3 sm:mr-0"
               />

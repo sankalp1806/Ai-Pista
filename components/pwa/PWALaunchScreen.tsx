@@ -15,7 +15,7 @@ interface PWALaunchScreenProps {
 }
 
 export const PWALaunchScreen: React.FC<PWALaunchScreenProps> = ({
-  title = 'Open Fiesta',
+  title = 'AI Pista',
   subtitle = 'AI Chat Platform',
   logoSrc = '/brand.svg',
   duration = 2000,

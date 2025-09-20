@@ -1,4 +1,4 @@
-# Open Fiesta Theme System Overview
+# AI Pista Theme System Overview
 
 Date: 2025-08-20  
 Status: Stable, polishing tasks pending (minor)
@@ -97,7 +97,7 @@ Extended (internal but currently used):
 
 ### Add a Font
 
-1. Extend `FONT_FAMILIES` with ids + `primary`, optional `secondary`, optional `googleFont`.
+1. Extend `FONT_FAMILIES` with ids + `primary`, optional `secondary`, optional `googleFont` name.
 2. Ensure fallback stack provided.
 3. Loader picks it up automatically.
 
@@ -143,7 +143,7 @@ Dev Helpers: `logThemeInfo(theme)`, `contrastRatio`, `evaluateAccentContrast`.
 | -------- | ------------------------------------------------------ | ------------------------ |
 | P1       | Chat input inline background cleanup                   | Purity & maintainability |
 | P1       | Snapshot test for `generateThemeClasses`               | Prevent contract drift   |
-| P2       | Document accent addition snippet (now integrated here) | Contributor clarity      |
+| P2       | Contributor snippet: “Add an accent” workflow                                   | Contributor clarity      |
 | P2       | Consider surface/elevation tokens (`--surface-*`)      | Future semantic layering |
 
 ## 12. Future Enhancements (Optional)

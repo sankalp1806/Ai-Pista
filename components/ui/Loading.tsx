@@ -1,5 +1,5 @@
 'use client';
-export default function Loading({ backgroundClass }: { backgroundClass: string }) {
+export default function Loading({ backgroundClass }: { backgroundClass?: string }) {
   return (
     <div className={`min-h-screen w-full ${backgroundClass} relative text-white`}>
       <div className="absolute inset-0 z-0 pointer-events-none opacity-95" />
@@ -37,7 +37,7 @@ export default function Loading({ backgroundClass }: { backgroundClass: string }
                 </svg>
 
                 <h2 className="mt-4 text-sm font-medium tracking-wide text-white/90">
-                  Open Fiesta
+                  AI Pista
                 </h2>
                 <p className="mt-1 text-xs text-white/60">Preparing your workspace…</p>
                 <span className="sr-only">Loading</span>

@@ -1,6 +1,6 @@
 /**
  * Theme System Configuration
- * Defines all theme options, types, and constants for the Open Fiesta application
+ * Defines all theme options, types, and constants for the AI Pista application
  */
 
 // Theme Mode Types
