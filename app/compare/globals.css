@@ -106,52 +106,47 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: oklch(0.106 0.016 254.34); /* #0E161B */
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
+  --card: oklch(0.189 0.011 234.3); /* #232E30 */
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
+  --popover: oklch(0.189 0.011 234.3); /* #232E30 */
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --primary: oklch(0.407 0.038 247.9); /* #56666F */
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.263 0.03 247.7); /* #314048 */
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
+  --muted: oklch(0.147 0.011 240.5); /* #162022 */
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --accent: oklch(0.263 0.03 247.7); /* #314048 */
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --border: oklch(0.263 0.03 247.7); /* #314048 */
+  --input: oklch(0.147 0.011 240.5); /* #162022 */
+  --ring: oklch(0.407 0.038 247.9); /* #56666F */
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  --sidebar: oklch(0.147 0.011 240.5); /* #162022 */
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary: oklch(0.407 0.038 247.9); /* #56666F */
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent: oklch(0.263 0.03 247.7); /* #314048 */
   --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-border: oklch(0.263 0.03 247.7); /* #314048 */
+  --sidebar-ring: oklch(0.407 0.038 247.9); /* #56666F */
 
   /* Update background pattern for dark mode */
   --background-pattern:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    linear-gradient(0deg, rgba(14, 22, 27, 0.8), rgba(14, 22, 27, 0.8)),
     radial-gradient(
       68% 58% at 50% 50%,
-      var(--accent-primary) 0%,
-      var(--accent-secondary) 16%,
-      var(--accent-tertiary) 32%,
-      #591828 46%,
-      #3c1722 60%,
-      #2a151d 72%,
-      #1f1317 84%,
-      #141013 94%,
-      #0a0a0a 100%
+      #314048 0%,
+      #232E30 32%,
+      #162022 60%,
+      #0E161B 100%
     );
 }
 
@@ -1127,9 +1122,9 @@ body.light * {
 }
 :root.dark .compare-page::before {
   background:
-    radial-gradient(1000px 600px at 50% 10%, rgba(160, 40, 40, 0.15), transparent 60%),
-    radial-gradient(800px 500px at 20% 80%, rgba(160, 40, 40, 0.10), transparent 70%),
-    linear-gradient(to bottom, rgba(3, 3, 3, 0.85), rgba(5, 5, 5, 0.90));
+    radial-gradient(1000px 600px at 50% 10%, rgba(49, 64, 72, 0.15), transparent 60%),
+    radial-gradient(800px 500px at 20% 80%, rgba(49, 64, 72, 0.10), transparent 70%),
+    linear-gradient(to bottom, rgba(14, 22, 27, 0.85), rgba(14, 22, 27, 0.90));
   opacity: 1;
 }
 :root:not(.dark) .compare-page::before {
@@ -1149,35 +1144,35 @@ body.light * {
   backdrop-filter: none;
 }
 :root.dark .compare-page::after {
-  background: rgba(0, 0, 0, 0.22);
+  background: rgba(14, 22, 27, 0.22);
   -webkit-backdrop-filter: blur(18px) saturate(120%);
   backdrop-filter: blur(18px) saturate(120%);
 }
 
 /* Glassmorphism for chat cards (dark theme only) */
 :root.dark .compare-page .group.relative.rounded-lg {
-  background: rgba(10, 10, 10, 0.50) !important;
+  background: rgba(22, 32, 34, 0.50) !important;
   -webkit-backdrop-filter: blur(18px) saturate(130%);
   backdrop-filter: blur(18px) saturate(130%);
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(86, 102, 111, 0.2) !important;
   box-shadow:
     0 14px 34px rgba(0, 0, 0, 0.42),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    inset 0 1px 0 rgba(86, 102, 111, 0.1);
 }
 :root.dark .compare-page .group.relative.rounded-lg:hover {
-  background: rgba(14, 14, 14, 0.56) !important;
-  border-color: rgba(255, 255, 255, 0.16) !important;
+  background: rgba(35, 46, 48, 0.56) !important;
+  border-color: rgba(86, 102, 111, 0.3) !important;
   box-shadow:
     0 18px 44px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    inset 0 1px 0 rgba(86, 102, 111, 0.15);
 }
 :root.dark .compare-page .group.relative.rounded-lg:focus-within {
   outline: none;
-  border-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(86, 102, 111, 0.4) !important;
   box-shadow:
     0 20px 52px rgba(0, 0, 0, 0.54),
-    0 0 0 1px rgba(255, 255, 255, 0.09),
-    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    0 0 0 1px rgba(86, 102, 111, 0.2),
+    inset 0 1px 0 rgba(86, 102, 111, 0.18);
 }
 
 /* Light theme: glassmorphism */
@@ -1242,7 +1237,7 @@ body.light * {
 
 /* Cell border styling */
 :root.dark .compare-page .group.relative.rounded-lg {
-  border-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(86, 102, 111, 0.15) !important;
 }
 :root:not(.dark) .compare-page .group.relative.rounded-lg {
   border-color: rgba(255, 255, 255, 0.3) !important;
@@ -1251,13 +1246,13 @@ body.light * {
 /* Glassy Toast theme (neutral, blurred, accent progress) */
 .glass-toast {
   border-radius: 12px !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  background: rgba(20, 20, 20, 0.55) !important;
+  border: 1px solid rgba(86, 102, 111, 0.25) !important;
+  background: rgba(22, 32, 34, 0.7) !important;
   -webkit-backdrop-filter: blur(12px) saturate(140%);
   backdrop-filter: blur(12px) saturate(140%);
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.06) inset !important;
+    0 0 0 1px rgba(86, 102, 111, 0.1) inset !important;
   color: #f8fafc !important;
 }
 .light .glass-toast {
