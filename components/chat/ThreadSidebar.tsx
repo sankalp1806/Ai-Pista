@@ -436,10 +436,6 @@ export default function ThreadSidebar({
 
 
             </div>
-            {/* Footer: Auth / User info */}
-            <div className="mt-auto pt-4 pb-4 px-4 border-t border-white/15 shrink-0">
-              <AuthButton />
-            </div>
           </>
 
         ) : (
@@ -491,17 +487,6 @@ export default function ThreadSidebar({
               })}
             </div>
 
-            {/* Footer: Auth / User info (collapsed) - Show only user avatar */}
-            <div className="w-full mt-auto pt-4 pb-4 border-t border-white/15 flex justify-center shrink-0">
-              <div className="w-10 h-10 rounded-xl overflow-hidden bg-gradient-to-br from-white/15 to-white/5 flex items-center justify-center ring-2 ring-white/10 shadow-lg">
-                {avatarUrl ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={avatarUrl} alt={displayName} className="h-full w-full object-cover" />
-                ) : (
-                  <span className="text-sm font-bold text-white/90">{initials}</span>
-                )}
-              </div>
-            </div>
           </div>
         )}
       </aside>
@@ -750,13 +735,6 @@ export default function ThreadSidebar({
               </div>
             </div>
 
-            {/* Footer: Auth / User info (mobile) */}
-            <div className={cn(
-              "absolute bg-black left-0 bottom-0 w-80 max-w-[85vw] p-4 border-t",
-              theme.mode === 'dark' ? "border-white/10" : "border-gray-300/40"
-            )}>
-              <AuthButton />
-            </div>
           </div>
         </div>
       )}
@@ -868,9 +846,6 @@ export function SimpleThreadSidebar({ isDark, sidebarOpen, onClose, onNewChat }:
       {/* Spacer */}
       <div className="flex-1" />
 
-      <div className="p-4 border-t border-inherit">
-        <AuthButton />
-      </div>
     </div>
   );
 }
