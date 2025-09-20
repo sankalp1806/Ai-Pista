@@ -125,7 +125,7 @@ export default function ChatGrid({
             {/* Header row: model labels */}
             <div
               className={cn(
-                "grid w-full gap-3 items-center overflow-visible mt-0 sticky top-0 left-0 right-0 z-30 -mx-3 px-3 lg:-mx-4 lg:px-4 py-1 rounded-t-lg shadow-[0_1px_0_rgba(0,0,0,0.4)] bg-transparent border-0 sm:backdrop-blur-sm sm:border-b",
+                "grid w-full gap-3 items-center overflow-visible mt-0 sticky top-0 left-0 right-0 z-30 py-1 rounded-t-lg shadow-[0_1px_0_rgba(0,0,0,0.4)] bg-transparent border-0 sm:backdrop-blur-sm sm:border-b",
                 isDark 
                   ? "sm:bg-black/40 sm:border-white/10"
                   : "sm:bg-white/40 sm:border-black/10"
@@ -247,8 +247,8 @@ export default function ChatGrid({
             {pairs.map((row, i) => (
               <div key={i} className="space-y-3">
                 {/* User prompt: sticky to the right of the viewport */}
-                <div className="relative h-16 w-full">
-                  <div className="absolute right-4 top-0 z-10 group flex gap-2 items-center pointer-events-auto">
+                <div className="relative h-16 w-full pointer-events-none">
+                  <div className="absolute right-0 top-0 z-10 group flex gap-2 items-center pointer-events-auto">
                     {/* Editing UI */}
                     {editingIdx === i ? (
                       <div className="min-w-0 max-w-[calc(100vw-2rem)]">
@@ -340,7 +340,7 @@ export default function ChatGrid({
 
 
                 <div
-                  className="grid gap-3 items-stretch pr-4"
+                  className="grid gap-3 items-stretch"
                   style={{ gridTemplateColumns: headerCols }}
                 >
                   {selectedModels.map((m) => {
