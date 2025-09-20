@@ -67,22 +67,17 @@ export default function ChatGrid({
   const { theme } = useTheme();
   const isDark = theme.mode === 'dark';
   const [pendingDelete, setPendingDelete] = useState<{ turnIndex: number } | null>(null);
-  // Compute grid columns dynamically so expanded model can take full width
+  // Manual width configuration for model columns
+  const columnWidth = '320px'; // EDIT THIS VALUE to change the width of all model columns
+  const collapsedColumnWidth = '60px';
+
+  // Compute grid columns dynamically based on manual widths
   const headerCols = useMemo(() => {
     if (headerTemplate) return headerTemplate;
     
-    const expandedCount = selectedModels.length - collapsedIds.length;
-    
-    // If only one model is expanded, give it all space, others get minimal
-    if (expandedCount === 1) {
-      const cols = selectedModels.map((m) =>
-        collapsedIds.includes(m.id) ? '60px' : 'minmax(0, 1fr)'
-      );
-      return cols.join(' ');
-    }
-    
-    // Otherwise, use responsive layout that fits container
-    return `repeat(${selectedModels.length}, minmax(280px, 1fr))`;
+    return selectedModels.map((m) =>
+      collapsedIds.includes(m.id) ? collapsedColumnWidth : columnWidth
+    ).join(' ');
   }, [headerTemplate, selectedModels, collapsedIds]);
   const [editingIdx, setEditingIdx] = useState<number | null>(null);
   const [draft, setDraft] = useState<string>('');
@@ -107,7 +102,7 @@ export default function ChatGrid({
       <div
         ref={scrollRef}
         className={cn(
-          "relative rounded-lg border overflow-x-auto flex-1 overflow-y-auto pb-28 scroll-stable-gutter",
+          "relative rounded-lg border px-3 lg:px-4 pt-2 overflow-x-auto flex-1 overflow-y-auto pb-28 scroll-stable-gutter",
           isDark 
             ? "border-white/5 bg-white/5"
             : "border-black/10 bg-black/5"
