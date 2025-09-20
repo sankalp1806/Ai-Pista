@@ -24,7 +24,7 @@ import GithubStar from '@/components/app/GithubStar';
 import ThemeToggle from '@/components/ThemeToggle';
 import CustomModels from '@/components/modals/CustomModels';
 import Settings from '@/components/app/Settings';
-import { Layers, Home as HomeIcon } from 'lucide-react';
+import { Layers, Home as HomeIcon, Sun, Moon } from 'lucide-react';
 import SupportDropdown from '@/components/support-dropdown';
 import Link from 'next/link';
 import { ToastContainer } from 'react-toastify';
@@ -37,7 +37,7 @@ import './globals.css';
 export default function Home() {
   const { user, loading } = useAuth();
   const router = useRouter();
-  const { theme } = useTheme();
+  const { theme, toggleMode } = useTheme();
   const isDark = theme.mode === 'dark';
   const [isHydrated, setIsHydrated] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
@@ -493,7 +493,19 @@ export default function Home() {
                       <Layers size={14} />
                     </button>
                     <CustomModels compact />
-                    <ThemeToggle compact />
+                    <button
+                      onClick={toggleMode}
+                      className={cn(
+                        'inline-flex items-center gap-1.5 text-xs h-9 w-9 justify-center rounded-md border shadow transition-all duration-200',
+                        isDark
+                          ? 'border-white/15 bg-white/5 text-white hover:bg-white/10'
+                          : 'border-rose-200/60 bg-rose-50/60 text-gray-700 hover:bg-rose-100/80'
+                      )}
+                      title="Toggle theme"
+                      aria-label="Toggle theme"
+                    >
+                      {isDark ? <Sun size={14} /> : <Moon size={14} />}
+                    </button>
                     <Settings compact />
                     <GithubStar owner="sankalp1806" repo="Ai-Pista" />
                   </div>
