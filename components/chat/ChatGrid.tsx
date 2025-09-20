@@ -121,7 +121,7 @@ export default function ChatGrid({
             Select up to 5 models to compare.
           </div>
         ) : (
-          <div className="w-full space-y-3">
+          <div className="w-full space-y-3 px-1.5">
             {/* Header row: model labels */}
             <div
               className={cn(
@@ -296,7 +296,7 @@ export default function ChatGrid({
                             className={cn(
                               "px-3 py-1 text-xs rounded transition-colors",
                               isDark 
-                                ? "bg-white/10 hover:bg-white/20 text-white"
+                                ? "bg-white/10 hover:bg-white/20 text-white" 
                                 : "bg-black/10 hover:bg-black/20 text-gray-700"
                             )}
                           >
