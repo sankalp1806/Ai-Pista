@@ -190,38 +190,49 @@ export default function Home() {
     ],
   );
 
-  // Load threads from Supabase for this user and keep only compare page threads in view
+  // This effect will run once on component mount to handle data loading logic
   useEffect(() => {
-    const load = async () => {
-      if (!user?.id) {
-        setThreads([])
-        setActiveId(null)
-        return
-      }
-      try {
-        const dbThreads = await fetchThreads(user.id)
-        setThreads(dbThreads)
-        if (dbThreads.length > 0) {
-          const compareThreads = dbThreads.filter(t => t.pageType === 'compare')
-          const preferredThread = activeProjectId 
-            ? compareThreads.find(t => t.projectId === activeProjectId)
-            : compareThreads[0]
-          setActiveId((prev) => {
-            if (prev && dbThreads.some(t => t.id === prev && t.pageType === 'compare')) {
-              return prev
-            }
-            return preferredThread?.id || null
-          })
-        } else {
-          setActiveId(null)
+    // Only run logic after the component has hydrated and user state is known
+    if (!isHydrated || loading) return;
+
+    const loadData = async () => {
+      // Prioritize local storage. If there's already chat history, don't overwrite it.
+      const localThreadsRaw = localStorage.getItem('ai-pista:threads');
+      if (localThreadsRaw) {
+        try {
+          const localThreads = JSON.parse(localThreadsRaw);
+          if (Array.isArray(localThreads) && localThreads.length > 0) {
+            // Local data exists, we trust it and do nothing more.
+            // useLocalStorage hook has already loaded it into the `threads` state.
+            return;
+          }
+        } catch (e) {
+          console.warn("Could not parse local chat history, will try fetching from DB.", e);
         }
-      } catch (e) {
-        console.warn('Failed to load compare threads from Supabase:', e)
       }
-    }
-    load()
+
+      // If local storage is empty AND the user is logged in, fetch from DB as a one-time fallback.
+      if (user?.id) {
+        try {
+          const dbThreads = await fetchThreads(user.id);
+          // Only set threads if we got some from the DB and local is empty.
+          if (dbThreads.length > 0) {
+            setThreads(dbThreads);
+            const compareThreads = dbThreads.filter(t => t.pageType === 'compare');
+            const preferredThread = activeProjectId
+              ? compareThreads.find(t => t.projectId === activeProjectId)
+              : compareThreads[0];
+            setActiveId(preferredThread?.id || null);
+          }
+        } catch (e) {
+          console.warn('Failed to load compare threads from Supabase:', e);
+        }
+      }
+    };
+
+    loadData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user?.id, activeProjectId])
+  }, [user?.id, isHydrated, loading]); // Depend on user and hydration state
 
   // group assistant messages by turn for simple compare view
   const pairs = useMemo(() => {
