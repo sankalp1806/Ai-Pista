@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { IBM_Plex_Mono } from "next/font/google"
 import Script from "next/script"
 import Link from "next/link"
+import { Sparkles } from "lucide-react"
 
 const ibmMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -68,9 +69,14 @@ export default function AboutPage() {
         </p>
 
         {/* Title */}
-        <h1 className="text-zinc-100 text-3xl sm:text-4xl md:text-5xl leading-tight mb-4">
-          AI Pista
-        </h1>
+        <div className="flex items-center gap-4 mb-4">
+          <div className="bg-white/10 p-3 rounded-lg border border-white/10">
+            <Sparkles className="w-6 h-6 text-zinc-100" />
+          </div>
+          <h1 className="text-zinc-100 text-3xl sm:text-4xl md:text-5xl leading-tight">
+            AI Pista
+          </h1>
+        </div>
         <p className="text-zinc-300/90 text-sm sm:text-base leading-relaxed max-w-3xl">
           Chat with and compare <span className="font-semibold text-zinc-100">300+ AI models</span> — OpenAI, Claude,
           Gemini, Perplexity, DeepSeek, Grok, and more — side‑by‑side in one place.
@@ -198,6 +204,3 @@ export default function AboutPage() {
     </main>
   )
 }
-
-
-
