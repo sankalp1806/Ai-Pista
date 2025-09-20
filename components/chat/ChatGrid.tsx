@@ -340,7 +340,7 @@ export default function ChatGrid({
 
                 <div
                   className="grid gap-3 items-stretch"
-                  style={{ gridTemplateColumns: headerCols }}
+                  style={{ gridTemplateColumns: headerCols, paddingBottom: '1rem' }}
                 >
                   {selectedModels.map((m) => {
                     const ans = row.answers.find((a) => a.modelId === m.id);
