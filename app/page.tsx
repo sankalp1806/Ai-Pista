@@ -197,7 +197,7 @@ export default function StartupSprintLanding() {
         <div className="flex items-center gap-3 mt-8">
           {/* Creator avatar only */}
           <a
-            href="https://x.com/byteHumi"
+            href="https://sankalp-portfolio.framer.website/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Sankalp on X"
@@ -209,18 +209,18 @@ export default function StartupSprintLanding() {
 
           {/* Social icons */}
           <a
-            href="https://x.com/byteHumi"
+            href="https://www.linkedin.com/in/sankalpsharma18/"
              target="_blank"
             className="w-10 h-10 bg-white/10 rounded-2xl flex items-center justify-center hover:bg-gray-900/80 transition-colors"
           >
-            <img src="https://i.postimg.cc/HLTCxTsr/twitter.png" className="w-5 h-5" />
+            <img src="White Linkedin Icon.png" className="w-full h-full" />
           </a>
           <a
             href="https://github.com/sankalp1806/"
              target="_blank"
             className="w-10 h-10 bg-white/10 rounded-2xl flex items-center justify-center hover:bg-gray-900/80 transition-colors"
           >
-            <img src="https://i.postimg.cc/1XRcSWrf/icons8-github-1500.png" className="w-5 h-5 " />
+            <img src="https://i.postimg.cc/1XRcSWrf/icons8-github-1500.png" className="w-full h-full " />
           </a>
         </div>
       </div>

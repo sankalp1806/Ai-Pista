@@ -107,9 +107,9 @@ export default function AboutPage() {
           <li>
             <a
               className="inline-flex w-full items-center justify-between rounded border border-zinc-800 bg-zinc-900/40 px-3 py-2 text-xs text-zinc-200 hover:bg-zinc-900 hover:border-zinc-700 transition"
-              href="https://x.com/byteHumi" target="_blank" rel="noreferrer"
+              href="https://www.linkedin.com/in/sankalpsharma18/" target="_blank" rel="noreferrer"
             >
-              X / @byteHumi <span className="text-zinc-500">↗</span>
+              X / @sankalp <span className="text-zinc-500">↗</span>
             </a>
           </li>
           <li>
