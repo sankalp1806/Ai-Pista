@@ -37,7 +37,7 @@ import './globals.css';
 export default function Home() {
   const { user, loading } = useAuth();
   const router = useRouter();
-  const { theme } = useTheme();
+  const { theme, toggleMode } = useTheme();
   const isDark = theme.mode === 'dark';
   const [isHydrated, setIsHydrated] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
@@ -328,17 +328,21 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={cn("compare-page min-h-screen w-full relative", isDark ? "dark" : "")}>
+    <div className={cn("compare-page min-h-screen w-full relative", isDark ? "dark" : backgroundClass)}>
       {/* Background */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/compare-bg.jpg')",
-        }}
-      />
-      <div
-        className="absolute inset-0 z-0 bg-black/50"
-      />
+      {isDark && (
+        <>
+          <div
+            className="absolute inset-0 z-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('/compare-bg.jpg')",
+            }}
+          />
+          <div
+            className="absolute inset-0 z-0 bg-black/50"
+          />
+        </>
+      )}
 
       {showSplash && (
         <div className="fixed inset-0 z-[9999]">
