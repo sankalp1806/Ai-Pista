@@ -1,8 +1,4 @@
 # AI Pista
-  <a <img src="./public/aipista.png" alt="AI Pista preview"/> </a>
-  Your browser does not support the video tag.
-
-<!-- Fallback link for renderers that don't support <video> -->
 
 ![AI Pista](public/aipista.png)
 
