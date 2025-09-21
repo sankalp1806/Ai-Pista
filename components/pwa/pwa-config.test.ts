@@ -1,3 +1,4 @@
+
 /**
  * @jest-environment jsdom
  */
@@ -97,8 +98,8 @@ describe('PWA Configuration', () => {
       const config = getPWAConfig();
       
       expect(config).toEqual({
-        name: 'AI Pista - AI Chat Platform',
-        shortName: 'AI Pista',
+        name: 'Ai Pista - AI Chat Platform',
+        shortName: 'Ai Pista',
         themeColor: '#000000',
         backgroundColor: '#000000',
         display: 'standalone',
@@ -329,8 +330,8 @@ describe('PWA Configuration', () => {
   describe('DEFAULT_MANIFEST', () => {
     it('should provide default manifest configuration', () => {
       expect(DEFAULT_MANIFEST).toEqual({
-        name: 'AI Pista - AI Chat Platform',
-        short_name: 'AI Pista',
+        name: 'Ai Pista - AI Chat Platform',
+        short_name: 'Ai Pista',
         description: 'A powerful AI chat platform supporting multiple models with offline capabilities',
         start_url: '/',
         display: 'standalone',

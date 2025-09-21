@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { Component, ErrorInfo, ReactNode } from 'react';
@@ -35,7 +36,7 @@ class ErrorBoundary extends Component<Props, State> {
               <div className="text-6xl mb-4">⚠️</div>
               <h1 className="text-2xl font-bold text-foreground mb-4">Something went wrong</h1>
               <p className="text-muted-foreground mb-6">
-                We&apos;re sorry, but something unexpected happened. Please try refreshing the page.
+                We're sorry, but something unexpected happened. Please try refreshing the page.
               </p>
               <div className="space-y-2">
                 <button

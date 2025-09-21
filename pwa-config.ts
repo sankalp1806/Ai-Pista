@@ -1,3 +1,4 @@
+
 /**
  * PWA Configuration utilities
  * Handles PWA-specific settings and environment variables
@@ -226,5 +227,3 @@ export const DEFAULT_MANIFEST = {
   lang: 'en',
   categories: ['productivity', 'utilities', 'education'],
 } as const;
-
-    

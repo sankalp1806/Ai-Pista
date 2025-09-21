@@ -1,3 +1,4 @@
+
 import type { NextConfig } from 'next';
 import withPWA from 'next-pwa';
 
@@ -110,7 +111,7 @@ const nextConfig: NextConfig = {
             value: 'GET, POST, PUT, DELETE, OPTIONS'
           },
           {
-            key: 'Access-Control-Allow-Headers',
+            key: 'Access-control-allow-headers',
             value: 'Content-Type, Authorization'
           }
         ]

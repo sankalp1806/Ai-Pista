@@ -1,3 +1,4 @@
+
 /**
  * PWA Configuration utilities
  * Handles PWA-specific settings and environment variables
