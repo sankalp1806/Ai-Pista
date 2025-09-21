@@ -102,7 +102,7 @@ export default function ChatGrid({
       <div
         ref={scrollRef}
         className={cn(
-          "relative rounded-lg border px-3 lg:px-4 pt-2 overflow-x-auto flex-1 overflow-y-auto pb-28 scroll-stable-gutter",
+          "relative rounded-lg border px-3 lg:px-4 pt-2 overflow-x-auto flex-1 overflow-y-auto pb-28",
           isDark 
             ? "border-white/5 bg-white/5"
             : "border-black/10 bg-black/5"
@@ -580,5 +580,3 @@ export default function ChatGrid({
     </>
   );
 }
-
-    
