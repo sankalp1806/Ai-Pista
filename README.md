@@ -3,7 +3,9 @@ md
 
 <video controls poster="./public/aipista.png" width="800">
   <source src="./public/OSPista.mp4" type="video/mp4" />
-  <a href="./public/OSPista.mp4">
+  <a href="./pgit add .
+git commit -m "Initial commit"
+git push -u origin mainublic/OSPista.mp4">
     <img src="./public/aipista.png" alt="AI Pista preview" />
   </a>
   Your browser does not support the video tag.
