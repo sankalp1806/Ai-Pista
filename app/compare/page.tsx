@@ -37,7 +37,7 @@ import './globals.css';
 export default function Home() {
   const { user, loading } = useAuth();
   const router = useRouter();
-  const { theme, toggleMode } = useTheme();
+  const { theme } = useTheme();
   const isDark = theme.mode === 'dark';
   const [isHydrated, setIsHydrated] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
@@ -330,40 +330,15 @@ export default function Home() {
   return (
     <div className={cn("compare-page min-h-screen w-full relative", isDark ? "dark" : "")}>
       {/* Background */}
-      {isDark ? (
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            background:
-              "linear-gradient(0deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), radial-gradient(68% 58% at 50% 50%, #c81e3a 0%, #a51d35 16%, #7d1a2f 32%, #591828 46%, #3c1722 60%, #2a151d 72%, #1f1317 84%, #141013 94%, #0a0a0a 100%), radial-gradient(90% 75% at 50% 50%, rgba(228,42,66,0.06) 0%, rgba(228,42,66,0) 55%), radial-gradient(150% 120% at 8% 8%, rgba(0,0,0,0) 42%, #0b0a0a 82%, #070707 100%), radial-gradient(150% 120% at 92% 92%, rgba(0,0,0,0) 42%, #0b0a0a 82%, #070707 100%), radial-gradient(60% 50% at 50% 60%, rgba(240,60,80,0.06), rgba(0,0,0,0) 60%), #050505",
-          }}
-        />
-      ) : (
-        /* Aurora Dream Corner Whispers */
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            background: `
-              radial-gradient(ellipse 85% 65% at 8% 8%, rgba(175, 109, 255, 0.42), transparent 60%),
-              radial-gradient(ellipse 75% 60% at 75% 35%, rgba(255, 235, 170, 0.55), transparent 62%),
-              radial-gradient(ellipse 70% 60% at 15% 80%, rgba(255, 100, 180, 0.40), transparent 62%),
-              radial-gradient(ellipse 70% 60% at 92% 92%, rgba(120, 190, 255, 0.45), transparent 62%),
-              linear-gradient(180deg, #f7eaff 0%, #fde2ea 100%)
-            `,
-          }}
-        />
-      )}
-
-      {/* Soft vignette for dark mode */}
-      {isDark && (
-        <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{
-            backgroundImage: "radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.5) 100%)",
-            opacity: 0.95,
-          }}
-        />
-      )}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/compare-bg.jpg')",
+        }}
+      />
+      <div
+        className="absolute inset-0 z-0 bg-black/50"
+      />
 
       {showSplash && (
         <div className="fixed inset-0 z-[9999]">
