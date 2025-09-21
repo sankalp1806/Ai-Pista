@@ -24,7 +24,7 @@ An open-source, multi-model AI chat playground built with Next.js App Router. Sw
 1. Install deps
 
 ```bash
-npm i
+npm install
 ```
 
 2. Configure environment
