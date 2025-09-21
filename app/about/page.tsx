@@ -123,7 +123,7 @@ export default function AboutPage() {
           <li>
             <a
               className="inline-flex w-full items-center justify-between rounded border border-zinc-800 bg-zinc-900/40 px-3 py-2 text-xs text-zinc-200 hover:bg-zinc-900 hover:border-zinc-700 transition"
-              href="mailto:niladrivit@gmail.com"
+              href="mailto:sankalpsharma1806@gmail.com"
             >
               Email
             </a>

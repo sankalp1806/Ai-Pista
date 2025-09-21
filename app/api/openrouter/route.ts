@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
             Authorization: `Bearer ${apiKey}`,
             'Content-Type': 'application/json',
             'HTTP-Referer': referer || 'https://localhost:3000',
-            'X-Title': title || 'AI Chat',
+            'X-Title': title || 'AI Pista',
           },
           body: JSON.stringify({
             model,
@@ -278,7 +278,7 @@ export async function POST(req: NextRequest) {
       headers: {
         Authorization: `Bearer ${apiKey}`,
         'HTTP-Referer': referer || 'http://localhost',
-        'X-Title': title || 'Open Source Fiesta',
+        'X-Title': title || 'AI Pista',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(bodyObj),
@@ -532,7 +532,7 @@ export async function POST(req: NextRequest) {
     }
 
     clearTimeout(timeoutId);
-    return Response.json({ text, raw: data });
+    return Response.json({ text, raw: data, provider: 'openrouter', usedKeyType });
   } catch (e: unknown) {
     const isAbort = e instanceof Error && e.name === 'AbortError';
     const message = isAbort

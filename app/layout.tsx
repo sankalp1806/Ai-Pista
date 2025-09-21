@@ -169,8 +169,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@byteHumi",
-    creator: "@byteHumi",
+    site: "@SankalpSharma",
+    creator: "@SankalpSharma",
     title: "AI Pista – AI Chat Assistant",
     description:
       "AI Pista lets you chat with 300+ AI models—OpenAI, Gemini, Claude, Perplexity, DeepSeek, Grok, and more—in one place. Compare responses and stay in flow.",
@@ -221,8 +221,8 @@ export default function RootLayout({
         <meta name="twitter:description" content="AI Pista lets you chat with 300+ AI models—OpenAI, Gemini, Claude, Perplexity, DeepSeek, Grok, and more—in one place. Compare responses and stay in flow." />
         <meta property="twitter:domain" content="aipista.app" />
         <meta property="twitter:url" content="https://aipista.app" />
-        <meta name="twitter:site" content="@byteHumi" />
-        <meta name="twitter:creator" content="@byteHumi" />
+        <meta name="twitter:site" content="@SankalpSharma" />
+        <meta name="twitter:creator" content="@SankalpSharma" />
         {/* Optional: helps Discord/Slack fetch quickly */}
         <meta httpEquiv="x-dns-prefetch-control" content="on" />
         

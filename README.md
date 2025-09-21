@@ -147,3 +147,4 @@ Thank you for helping improve Ai Pista!
 ## Acknowledgements
 
 - Model access via OpenRouter and Google
+
