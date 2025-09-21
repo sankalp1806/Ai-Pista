@@ -89,7 +89,7 @@ export default function PressPage() {
           <h2 className="text-[11px] tracking-[0.22em] uppercase text-zinc-400 mb-3">Contact</h2>
           <ul className="space-y-2 text-zinc-300/90 text-sm sm:text-base">
             <li>Email: <a className="underline decoration-zinc-600 hover:decoration-zinc-400" href="mailto:press@aipista.app">press@aipista.app</a></li>
-            <li>X: <a className="underline decoration-zinc-600 hover:decoration-zinc-400" href="https://x.com/byteHumi" target="_blank" rel="noreferrer">@byteHumi</a></li>
+            <li>Portfolio: <a className="underline decoration-zinc-600 hover:decoration-zinc-400" href="https://sankalp-portfolio.framer.website/" target="_blank" rel="noreferrer">sankalp-portfolio.framer.website/</a></li>
           </ul>
         </div>
       </section>

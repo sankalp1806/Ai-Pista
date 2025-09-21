@@ -264,7 +264,7 @@ export default function RootLayout({
             url: "https://aipista.app",
             logo: "https://aipista.app/brand.png",
             sameAs: [
-              "https://x.com/byteHumi",
+              "https://sankalp-portfolio.framer.website/",
               "https://github.com/sankalp1806/Ai-Pista"
             ]
           })}

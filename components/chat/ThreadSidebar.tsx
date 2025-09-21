@@ -46,6 +46,7 @@ export default function ThreadSidebar({
   onNewChat,
   mobileSidebarOpen,
   onCloseMobile,
+  onOpenMobile,
   onDeleteThread,
   selectedModels,
   projects,
@@ -201,7 +202,7 @@ export default function ThreadSidebar({
             </div>
             {/* Replace title with Made by Sankalp badge */}
             <a
-              href="https://x.com/byteHumi"
+              href="https://sankalp-portfolio.framer.website/"
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
@@ -491,7 +492,7 @@ export default function ThreadSidebar({
                 </div>
                 {/* Replace title with Made by Sankalp badge */}
                 <a
-                  href="https://x.com/byteHumi"
+                  href="https://sankalp-portfolio.framer.website/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
