@@ -1092,3 +1092,51 @@ body.light * {
     scrollbar-color: #314048 transparent;
   }
 }
+/* Glowing Button Styles */
+@keyframes glowing-border-spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.glowing-btn-container {
+  position: relative;
+  display: inline-block;
+  padding: 2px;
+  border-radius: 18px; /* Match inner button's rounded corners + padding */
+  overflow: hidden;
+  background: transparent;
+}
+
+.glowing-btn-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250%; /* Make it large enough to cover the button corners */
+  height: 250%;
+  z-index: 0;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #8e2de2, #4a00e0, #2dd4bf, #f9ed69, #f08a5d, #b83b5e, #8e2de2
+  );
+  animation: glowing-border-spin 4s linear infinite;
+}
+
+.glowing-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 16px; /* Slightly less than container to create border effect */
+  background: #1a202c; /* Dark background */
+  color: white;
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.glowing-txt, .faulty-letter {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}

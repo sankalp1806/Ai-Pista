@@ -10,6 +10,7 @@ import { Menu, X, Sparkles } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import { CustomCrowd } from '@/components/Footer'
 import Image from "next/image"
+import ClientOnly from "@/components/ui/ClientOnly"
 
 export default function StartupSprintLanding() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -22,67 +23,6 @@ export default function StartupSprintLanding() {
   const [usersCount, setUsersCount] = useState<number | null>(2670)
 
   // no email/waitlist form on the landing page
-
-  // Load total users from Supabase (profiles table) and latest avatars
-  useEffect(() => {
-    let cancelled = false
-    ;(async () => {
-      try {
-        // Initial total users count
-        const { count } = await supabase
-          .from('profiles')
-          .select('*', { count: 'exact', head: true })
-        if (!cancelled && typeof count === 'number') {
-          setUsersCount(count)
-        }
-
-        // Fetch latest avatars
-        const { data, error } = await supabase
-          .from('profiles')
-          .select('avatar_url')
-          .not('avatar_url', 'is', null)
-          .order('updated_at', { ascending: false })
-          .limit(12)
-        if (!error && data && !cancelled) {
-          const urls = (data
-            .map((d: { avatar_url?: string | null }) => d.avatar_url || '')
-            .filter(Boolean) as string[])
-          // Merge with defaults, dedupe, cap to 8
-          const merged = Array.from(new Set([...urls, ...avatars]))
-          setAvatars(merged.slice(0, 8))
-        }
-      } catch {
-        // Silently ignore; keep defaults
-      }
-    })()
-    return () => { cancelled = true }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  // Realtime: keep users count in sync with inserts/deletes
-  useEffect(() => {
-    try {
-      const channel = supabase
-        .channel('realtime:profiles-count')
-        .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'profiles' }, () => {
-          setUsersCount((c) => (typeof c === 'number' ? c + 1 : c))
-        })
-        .on('postgres_changes', { event: 'DELETE', schema: 'public', table: 'profiles' }, () => {
-          setUsersCount((c) => (typeof c === 'number' && c > 0 ? c - 1 : c))
-        })
-        // Updates typically don't change count, but if you soft-delete/restore, re-fetch
-        .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'profiles' }, async () => {
-          const { count } = await supabase.from('profiles').select('*', { count: 'exact', head: true })
-          if (typeof count === 'number') setUsersCount(count)
-        })
-        .subscribe()
-      return () => {
-        try { supabase.removeChannel(channel) } catch {}
-      }
-    } catch {
-      // noop
-    }
-  }, [])
 
   return (
     <>
@@ -139,12 +79,14 @@ export default function StartupSprintLanding() {
             <div className="flex flex-col items-center gap-3 mt-8 w-64">
               <Link
                 href="/compare"
-                className="glowing-btn"
+                className="glowing-btn-container"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span className="glowing-txt">
-                  Start <span className="faulty-letter">C</span>hat
-                </span>
+                <div className="glowing-btn">
+                  <span className="glowing-txt">
+                    Start <span className="faulty-letter">C</span>hat
+                  </span>
+                </div>
               </Link>
             </div>
           </div>
@@ -183,11 +125,13 @@ export default function StartupSprintLanding() {
           <div className="mt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2 w-full">
             <Link
               href="/compare"
-              className="glowing-btn"
+              className="glowing-btn-container"
             >
-               <span className="glowing-txt">
-                  Start <span className="faulty-letter">C</span>hat
-                </span>
+               <div className="glowing-btn">
+                  <span className="glowing-txt">
+                    Start <span className="faulty-letter">C</span>hat
+                  </span>
+                </div>
             </Link>
           </div>
         </div>
