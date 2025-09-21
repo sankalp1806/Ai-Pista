@@ -147,26 +147,26 @@ export async function streamOpenRouter(
       const parts = buffer.split('\n\n');
       buffer = parts.pop() || '';
       for (const part of parts) {
-        const line = part.trim();
-        if (!line.startsWith('data:')) continue;
-        const payload = line.slice(5).trim();
+        if (!part.startsWith('data:')) continue;
+        const payload = part.slice(5).trim();
         if (payload === '[DONE]') {
           handlers.onDone?.();
           return;
         }
         try {
           const json = JSON.parse(payload);
-          if (typeof json?.delta === 'string' && json.delta) handlers.onToken(json.delta);
-          if (json?.provider || json?.usedKeyType) handlers.onMeta?.(json);
-          if (json?.error)
-            handlers.onError?.({
-              error: json.error,
-              code: json.code,
-              provider: json.provider,
-              usedKeyType: json.usedKeyType,
-            });
-        } catch {
-          // ignore individual event parse errors
+          // Correctly handle different SSE message types
+          if (typeof json.token === 'string') {
+            handlers.onToken(json.token);
+          } else if (typeof json.delta === 'string') {
+            handlers.onToken(json.delta);
+          } else if (json.meta) {
+            handlers.onMeta?.(json.meta);
+          } else if (json.error) {
+            handlers.onError?.(json);
+          }
+        } catch (e) {
+          console.warn('SSE stream parse error:', e);
         }
       }
       return pump();
@@ -174,7 +174,6 @@ export async function streamOpenRouter(
     await pump();
   } catch (err) {
     if (err instanceof DOMException && err.name === 'AbortError') {
-      // Abort is expected, no need to show an error.
       handlers.onDone?.();
       return;
     }
@@ -183,5 +182,3 @@ export async function streamOpenRouter(
     handlers.onDone?.();
   }
 }
-
-    
