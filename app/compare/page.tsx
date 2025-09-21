@@ -18,7 +18,6 @@ import { BACKGROUND_STYLES } from '@/lib/themes';
 import { safeUUID } from '@/lib/uuid';
 import LaunchScreen from '@/components/ui/LaunchScreen';
 import { useAuth } from '@/lib/auth';
-import { fetchThreads, createThread as createThreadDb, deleteThread as deleteThreadDb } from '@/lib/db'
 import { useRouter } from 'next/navigation';
 import GithubStar from '@/components/app/GithubStar';
 import ThemeToggle from '@/components/ThemeToggle';
@@ -46,13 +45,6 @@ export default function Home() {
   const [editingProject, setEditingProject] = useState<Project | null>(null);
   const backgroundClass = BACKGROUND_STYLES[theme.background].className;
 
-  // Redirect to signin if not authenticated (wait for auth to finish loading) - REMOVED
-  /* useEffect(() => {
-    if (isHydrated && !loading && !user) {
-      router.push('/signin');
-    }
-  }, [user, loading, isHydrated, router]); */
-
   const [selectedIds, setSelectedIds] = useLocalStorage<string[]>('ai-pista:selected-models', [
     'gemini-2.5-pro',
     'unstable-gpt-5-chat',
@@ -74,7 +66,6 @@ export default function Home() {
   const [customModels] = useCustomModels();
   const allModels = useMemo(() => mergeModels(customModels), [customModels]);
 
-  // Projects hook from main
   const {
     projects,
     activeProjectId,
@@ -85,7 +76,6 @@ export default function Home() {
     selectProject,
   } = useProjects();
   
-  // Project modal handlers
   const handleCreateProject = () => {
     setEditingProject(null);
     setProjectModalOpen(true);
@@ -110,7 +100,7 @@ export default function Home() {
     () => threads.find((t) => t.id === activeId) || null,
     [threads, activeId],
   );
-  // Only show chats for the active project (or all if none selected)
+
   const visibleThreads = useMemo(
     () => {
       const scope = threads.filter((t) => t.pageType === 'compare');
@@ -121,27 +111,21 @@ export default function Home() {
   const messages = useMemo(() => activeThread?.messages ?? [], [activeThread]);
 
   const [loadingIds, setLoadingIds] = useState<string[]>([]);
-  // Allow collapsing a model column without unselecting it
   const [collapsedIds, setCollapsedIds] = useState<string[]>([]);
   const selectedModels = useMemo(
     () => selectedIds.map((id) => allModels.find((m) => m.id === id)).filter(Boolean) as AiModel[],
     [selectedIds, allModels],
   );
-  // Build grid template: collapsed => fixed narrow, expanded => normal
   const headerTemplate = useMemo(() => {
     if (selectedModels.length === 0) return '';
     const isCompact = selectedModels.length < 5;
     const parts = selectedModels.map((m) => {
       const collapsed = collapsedIds.includes(m.id);
       if (collapsed) return '90px';
-      // If fewer than 5 models, allow columns to flex and fill available width.
-      // Otherwise keep fixed width for consistent 5-column comparison.
       return isCompact ? 'minmax(240px, 1fr)' : '320px';
     });
     return parts.join(' ');
   }, [selectedModels, collapsedIds]);
-
-  const anyLoading = loadingIds.length > 0;
 
   const [firstNoteDismissed, setFirstNoteDismissed] = useLocalStorage<boolean>(
     'ai-pista:first-visit-note-dismissed',
@@ -160,7 +144,6 @@ export default function Home() {
     });
   };
 
-  // Chat actions (send and onEditUser) moved to lib/chatActions.ts to avoid state races
   const { send, onEditUser } = useMemo(
     () =>
       createChatActions({
@@ -172,8 +155,8 @@ export default function Home() {
         setActiveId,
         setLoadingIds: (updater) => setLoadingIds(updater),
         setLoadingIdsInit: (ids) => setLoadingIds(ids),
-        activeProject, // include project system prompt/context
-        selectedVoice, // pass voice selection for audio models
+        activeProject,
+        selectedVoice,
         userId: user?.id,
         pageType: 'compare',
       }),
@@ -190,51 +173,6 @@ export default function Home() {
     ],
   );
 
-  // This effect will run once on component mount to handle data loading logic
-  useEffect(() => {
-    // Only run logic after the component has hydrated and user state is known
-    if (!isHydrated || loading) return;
-
-    const loadData = async () => {
-      // Prioritize local storage. If there's already chat history, don't overwrite it.
-      const localThreadsRaw = localStorage.getItem('ai-pista:threads');
-      if (localThreadsRaw) {
-        try {
-          const localThreads = JSON.parse(localThreadsRaw);
-          if (Array.isArray(localThreads) && localThreads.length > 0) {
-            // Local data exists, we trust it and do nothing more.
-            // useLocalStorage hook has already loaded it into the `threads` state.
-            return;
-          }
-        } catch (e) {
-          console.warn("Could not parse local chat history, will try fetching from DB.", e);
-        }
-      }
-
-      // If local storage is empty AND the user is logged in, fetch from DB as a one-time fallback.
-      if (user?.id) {
-        try {
-          const dbThreads = await fetchThreads(user.id);
-          // Only set threads if we got some from the DB and local is empty.
-          if (dbThreads.length > 0) {
-            setThreads(dbThreads);
-            const compareThreads = dbThreads.filter(t => t.pageType === 'compare');
-            const preferredThread = activeProjectId
-              ? compareThreads.find(t => t.projectId === activeProjectId)
-              : compareThreads[0];
-            setActiveId(preferredThread?.id || null);
-          }
-        } catch (e) {
-          console.warn('Failed to load compare threads from Supabase:', e);
-        }
-      }
-    };
-
-    loadData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user?.id, isHydrated, loading]); // Depend on user and hydration state
-
-  // group assistant messages by turn for simple compare view
   const pairs = useMemo(() => {
     const rows: { user: ChatMessage; answers: ChatMessage[] }[] = [];
     let currentUser: ChatMessage | null = null;
@@ -249,15 +187,11 @@ export default function Home() {
     return rows;
   }, [messages]);
 
-  // For compare page only: while waiting for model responses, inject a placeholder
-  // "Thinking…" message for each loading model on the latest turn so the UI
-  // shows a loading indicator instead of "No response".
   const pairsWithPlaceholders = useMemo(() => {
     const cloned = pairs.map(r => ({ user: r.user, answers: [...r.answers] }));
     if (cloned.length === 0) return cloned;
     const last = cloned[cloned.length - 1];
     const answeredIds = new Set(last.answers.map(a => a.modelId).filter(Boolean) as string[]);
-    // Show placeholders for any selected model that hasn't answered yet
     selectedModels.forEach(m => {
       if (!answeredIds.has(m.id)) {
         last.answers.push({
@@ -272,7 +206,6 @@ export default function Home() {
     return cloned;
   }, [pairs, loadingIds, selectedModels]);
 
-  // Delete a full user turn (user + all its answers)
   const onDeleteUser = (turnIndex: number) => {
     if (!activeThread) return;
     setThreads((prev) =>
@@ -283,34 +216,8 @@ export default function Home() {
         for (let i = 0; i < msgs.length; i++) if (msgs[i].role === 'user') userStarts.push(i);
         const start = userStarts[turnIndex];
         if (start === undefined) return t;
-        const end = userStarts[turnIndex + 1] ?? msgs.length; // exclusive
+        const end = userStarts[turnIndex + 1] ?? msgs.length;
         const nextMsgs = msgs.filter((_, idx) => idx < start || idx >= end);
-        return { ...t, messages: nextMsgs };
-      }),
-    );
-  };
-
-  // Delete a specific model's answer within a turn
-  const onDeleteAnswer = (turnIndex: number, modelId: string) => {
-    if (!activeThread) return;
-    setThreads((prev) =>
-      prev.map((t) => {
-        if (t.id !== activeThread.id) return t;
-        const msgs = t.messages;
-        const userStarts: number[] = [];
-        for (let i = 0; i < msgs.length; i++) if (msgs[i].role === 'user') userStarts.push(i);
-        const start = userStarts[turnIndex];
-        if (start === undefined) return t;
-        const end = userStarts[turnIndex + 1] ?? msgs.length; // exclusive
-        let removed = false;
-        const nextMsgs = msgs.filter((m, idx) => {
-          if (idx <= start || idx >= end) return true;
-          if (!removed && m.role === 'assistant' && m.modelId === modelId) {
-            removed = true;
-            return false;
-          }
-          return true;
-        });
         return { ...t, messages: nextMsgs };
       }),
     );
@@ -318,7 +225,7 @@ export default function Home() {
 
   useEffect(() => {
     if (isHydrated) {
-      const t = setTimeout(() => setShowSplash(false), 1500); // Extended splash screen duration
+      const t = setTimeout(() => setShowSplash(false), 1500);
       return () => clearTimeout(t);
     }
   }, [isHydrated]);
@@ -329,7 +236,6 @@ export default function Home() {
 
   return (
     <div className={cn("compare-page min-h-screen w-full relative", isDark ? "dark" : backgroundClass)}>
-      {/* Background */}
       {isDark && (
         <>
           <div
@@ -352,7 +258,6 @@ export default function Home() {
 
       <div className="relative z-10 px-3 lg:px-4 py-4 lg:py-6">
         <div className="flex gap-3 lg:gap-4">
-          {/* Sidebar */}
           <ThreadSidebar
             sidebarOpen={sidebarOpen}
             onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
@@ -386,16 +291,8 @@ export default function Home() {
                 }
                 return next;
               });
-              if (user?.id) {
-                try {
-                  await deleteThreadDb(user.id, id);
-                } catch (e) {
-                  console.warn('Failed to delete compare thread in DB:', e);
-                }
-              }
             }}
             selectedModels={selectedModels}
-            // Projects (from main)
             projects={projects}
             activeProjectId={activeProjectId}
             onSelectProject={selectProject}
@@ -404,9 +301,7 @@ export default function Home() {
             onDeleteProject={deleteProject}
           />
 
-          {/* Main content */}
           <div className="flex-1 min-w-0 flex flex-col h-[calc(100vh-2rem)] lg:h-[calc(100vh-3rem)] overflow-hidden ">
-            {/* Mobile Header with Hamburger */}
           <div className={cn(
             "lg:hidden flex items-center justify-between p-4 border-b",
             isDark ? "border-white/10" : "border-rose-200/40"
@@ -426,9 +321,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               </button>
-              {/* Right: Actions trigger (mobile) */}
               <div className="relative flex items-center gap-2">
-                {/* Inline Support button on mobile header */}
                 <div>
                   <SupportDropdown inline theme={theme.mode === 'dark' ? 'dark' : 'light'} />
                 </div>
@@ -504,7 +397,6 @@ export default function Home() {
                 )}
               </div>
             </div>
-            {/* Top bar - Desktop only */}
             <div className="hidden lg:block">
               <HeaderBar
                 onOpenMenu={() => setMobileSidebarOpen(true)}
@@ -516,7 +408,6 @@ export default function Home() {
               />
             </div>
 
-            {/* Voice selector for audio models */}
             {isHydrated && selectedModels.some((m) => m.category === 'audio') && (
               <div className="mb-3 px-4">
                 <div className="flex items-center gap-3">
@@ -566,7 +457,6 @@ export default function Home() {
                   }}
                 />
                 <div className="sr-only" aria-hidden>
-                  {/* Debug counter for messages to ensure state updates */}
                   activeId: {String(activeId || '')} • messages: {String(messages.length)}
                 </div>
               </div>
@@ -575,7 +465,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Toasts for share notifications */}
       <ProjectModal
         open={projectModalOpen}
         onClose={() => setProjectModalOpen(false)}

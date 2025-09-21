@@ -568,7 +568,7 @@ export default function AIChatBox({
                   <Send className="w-4 h-4" />
                 )}
               </button>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

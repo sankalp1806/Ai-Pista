@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
 
     // Check if this is an image generation model - redirect to non-streaming endpoint
     const isImageGenerationModel = typeof model === 'string' && 
-      /google\/gemini-2.5-flash-image-preview/i.test(model);
+      /google\/gemini-2\.5-flash-image-preview/i.test(model);
 
     if (isImageGenerationModel) {
       // For image generation models, redirect to the non-streaming endpoint
@@ -316,5 +316,3 @@ export async function POST(req: NextRequest) {
     return new Response(message, { status: 500 });
   }
 }
-
-    

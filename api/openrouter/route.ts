@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
 
     // Check if this is an image generation model
     const isImageGenerationModel =
-      typeof model === 'string' && /google\/gemini-2.5-flash-image-preview/i.test(model);
+      typeof model === 'string' && /google\/gemini-2\.5-flash-image-preview/i.test(model);
 
     // Handle image generation models differently
     if (isImageGenerationModel) {
@@ -544,5 +544,3 @@ export async function POST(req: NextRequest) {
     return new Response(JSON.stringify({ error: message, code }), { status: code });
   }
 }
-
-    

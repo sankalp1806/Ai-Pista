@@ -1,8 +1,7 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState } from 'react'
-import { User, Session, AuthChangeEvent } from '@supabase/supabase-js'
-import { supabase } from '@/lib/db/client'
+import type { User, Session } from '@supabase/supabase-js'
 
 interface AuthContextType {
   user: User | null
@@ -19,71 +18,41 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<Session | null>(null)
   const [loading, setLoading] = useState(true)
 
-  const BYPASS =
-    process.env.NEXT_PUBLIC_BYPASS_AUTH === '1' && process.env.NODE_ENV !== 'production'
+  // Dev-only bypass: pretend authenticated
+  const BYPASS = process.env.NEXT_PUBLIC_BYPASS_AUTH === '1' && process.env.NODE_ENV !== 'production'
 
   useEffect(() => {
-    // Dev-only bypass: pretend authenticated and skip Supabase wiring
-    if (BYPASS) {
-      const mockUser = {
-        id: '00000000-0000-0000-0000-000000000001',
-        aud: 'authenticated',
-        role: 'authenticated',
-        email: 'dev@local',
-        phone: '',
-        confirmed_at: new Date().toISOString(),
-        email_confirmed_at: new Date().toISOString(),
-        last_sign_in_at: new Date().toISOString(),
-        app_metadata: { provider: 'bypass', providers: ['bypass'] },
-        user_metadata: { name: 'Dev Bypass' },
-        identities: [],
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-        is_anonymous: false,
-      } as unknown as User
+    setLoading(true)
+    const mockUser = {
+      id: '00000000-0000-0000-0000-000000000001',
+      aud: 'authenticated',
+      role: 'authenticated',
+      email: 'dev@local',
+      phone: '',
+      confirmed_at: new Date().toISOString(),
+      email_confirmed_at: new Date().toISOString(),
+      last_sign_in_at: new Date().toISOString(),
+      app_metadata: { provider: 'bypass', providers: ['bypass'] },
+      user_metadata: { name: 'Dev User' },
+      identities: [],
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+      is_anonymous: false,
+    } as unknown as User
 
-      setUser(mockUser)
-      setSession(null)
-      setLoading(false)
-      return
-    }
-
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }: { data: { session: Session | null } }) => {
-      setSession(session)
-      setUser(session?.user ?? null)
-      setLoading(false)
-    })
-
-    // Listen for auth changes
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, newSession: Session | null) => {
-      setSession(newSession)
-      setUser(newSession?.user ?? null)
-      setLoading(false)
-    })
-
-    return () => subscription.unsubscribe()
-  }, [])
+    setUser(BYPASS ? mockUser : null)
+    setSession(null)
+    setLoading(false)
+  }, [BYPASS])
 
   const signInWithProvider = async (provider: 'google' | 'github') => {
-    if (BYPASS) {
-      // No-op in bypass mode
-      return
-    }
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider,
-      options: {
-        redirectTo: `${window.location.origin}/auth/callback`
-      }
-    })
-    if (error) throw error
+    if (BYPASS) return;
+    console.warn(`[Auth] signInWithProvider(${provider}) called but Supabase is removed.`)
   }
 
   const signOut = async () => {
-    const { error } = await supabase.auth.signOut()
-    if (error) throw error
+    if (BYPASS) return;
+    console.warn('[Auth] signOut called but Supabase is removed.')
   }
 
   const value = {

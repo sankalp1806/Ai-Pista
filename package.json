@@ -34,8 +34,6 @@
     "@radix-ui/react-select": "^2.2.6",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-switch": "^1.2.6",
-    "@supabase/auth-helpers-nextjs": "^0.10.0",
-    "@supabase/supabase-js": "^2.56.0",
     "@swc/helpers": "0.5.12",
     "@tailwindcss/typography": "^0.5.16",
     "@types/crypto-js": "^4.2.2",
