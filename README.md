@@ -1,17 +1,10 @@
-md
 # AI Pista
-
-<video controls poster="./public/aipista.png" width="800">
-  <source src="./public/OSPista.mp4" type="video/mp4" />
-  <a href="./public/OSPista.mp4">
-    <img src="./public/aipista.png" alt="AI Pista preview" />
-  </a>
+  <a <img src="./public/aipista.png" alt="AI Pista preview"/> </a>
   Your browser does not support the video tag.
-</video>
 
 <!-- Fallback link for renderers that don't support <video> -->
 
-[![AI Pista](public/aipista.png)](public/OSPista.mp4)
+![AI Pista](public/aipista.png)
 
 An open-source, multi-model AI chat playground built with Next.js App Router. Switch between providers and models, compare outputs side-by-side, and use optional web search and image attachments.
 
