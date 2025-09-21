@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react';
 import { Project } from '@/lib/projects';
 
-const STORAGE_KEY = 'ai-fiesta:projects';
-const ACTIVE_PROJECT_KEY = 'ai-fiesta:active-project';
+const STORAGE_KEY = 'ai-pista:projects';
+const ACTIVE_PROJECT_KEY = 'ai-pista:active-project';
 
 export function useProjects() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -98,3 +98,5 @@ export function useProjects() {
     getProjectById,
   };
 }
+
+    

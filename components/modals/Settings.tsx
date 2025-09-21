@@ -302,3 +302,5 @@ export default function Settings({ compact }: SettingsProps) {
     </div>
   );
 }
+
+    

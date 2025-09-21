@@ -207,3 +207,5 @@ describe('InstallBanner', () => {
     jest.useRealTimers();
   });
 });
+
+    

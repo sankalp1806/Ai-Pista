@@ -111,3 +111,5 @@ describe('InstallPrompt', () => {
     expect(installButton).toBeDisabled();
   });
 });
+
+    

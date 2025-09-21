@@ -57,7 +57,7 @@ describe('PWALaunchScreen', () => {
   it('should render launch screen with default props', () => {
     render(<PWALaunchScreen />);
 
-    expect(screen.getByText('AI Pista')).toBeInTheDocument();
+    expect(screen.getByText('Ai Pista')).toBeInTheDocument();
     expect(screen.getByText('AI Chat Platform')).toBeInTheDocument();
   });
 
@@ -119,7 +119,7 @@ describe('PWALaunchScreen', () => {
   it('should fade out after duration', async () => {
     render(<PWALaunchScreen duration={1000} />);
 
-    const launchScreen = screen.getByText('AI Pista').closest('div');
+    const launchScreen = screen.getByText('Ai Pista').closest('div');
     expect(launchScreen).toHaveClass('opacity-100');
 
     // Fast-forward to when it should start fading
@@ -133,7 +133,7 @@ describe('PWALaunchScreen', () => {
   it('should render logo when logoSrc is provided', () => {
     render(<PWALaunchScreen logoSrc="/test-logo.svg" />);
 
-    const logo = screen.getByAltText('AI Pista');
+    const logo = screen.getByAltText('Ai Pista');
     expect(logo).toBeInTheDocument();
     expect(logo).toHaveAttribute('src', '/test-logo.svg');
   });
@@ -141,7 +141,7 @@ describe('PWALaunchScreen', () => {
   it('should apply custom className', () => {
     render(<PWALaunchScreen className="custom-launch-screen" />);
 
-    const launchScreen = screen.getByText('AI Pista').closest('div');
+    const launchScreen = screen.getByText('Ai Pista').closest('div');
     expect(launchScreen).toHaveClass('custom-launch-screen');
   });
 
@@ -152,9 +152,11 @@ describe('PWALaunchScreen', () => {
     render(<PWALaunchScreen />);
 
     // Should render without errors in light mode
-    expect(screen.getByText('AI Pista')).toBeInTheDocument();
+    expect(screen.getByText('Ai Pista')).toBeInTheDocument();
     
     // Reset to dark mode for other tests
     mockThemeContext.theme.mode = 'dark';
   });
 });
+
+    

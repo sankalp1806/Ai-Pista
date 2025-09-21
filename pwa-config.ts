@@ -226,3 +226,5 @@ export const DEFAULT_MANIFEST = {
   lang: 'en',
   categories: ['productivity', 'utilities', 'education'],
 } as const;
+
+    
