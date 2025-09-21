@@ -119,12 +119,7 @@ export default function ChatGrid({
           <div className="w-full space-y-3 px-1.5">
             {/* Header row: model labels */}
             <div
-              className={cn(
-                "grid w-full gap-3 items-center overflow-visible mt-0 sticky top-0 left-0 right-0 z-30 py-1 rounded-t-lg shadow-[0_1px_0_rgba(0,0,0,0.4)] bg-transparent border-0 sm:backdrop-blur-sm sm:border-b",
-                isDark 
-                  ? "sm:bg-black/40 sm:border-white/10"
-                  : "sm:bg-white/40 sm:border-black/10"
-              )}
+              className="grid w-full gap-3 items-start"
               style={{ gridTemplateColumns: headerCols }}
             >
               {selectedModels.map((m) => {
@@ -585,3 +580,5 @@ export default function ChatGrid({
     </>
   );
 }
+
+    
