@@ -154,8 +154,8 @@ export async function streamOpenRouter(
           return;
         }
         try {
+          if (!payload) continue;
           const json = JSON.parse(payload);
-          // Correctly handle different SSE message types
           if (typeof json.token === 'string') {
             handlers.onToken(json.token);
           } else if (typeof json.delta === 'string') {

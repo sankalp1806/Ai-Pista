@@ -606,7 +606,14 @@ export const MODEL_CATALOG: AiModel[] = [
     good: true,
     category: 'text',
   },
-
+  {
+    id: 'unstable-gemma-2-9b-it',
+    label: 'Gemma 2 9B IT',
+    provider: 'unstable',
+    model: 'gemma-2-9b-it',
+    good: true,
+    category: 'text',
+  },
   // Unstable Provider Models - Grok Series
   {
     id: 'unstable-grok-4',

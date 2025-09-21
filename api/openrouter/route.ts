@@ -532,7 +532,7 @@ export async function POST(req: NextRequest) {
     }
 
     clearTimeout(timeoutId);
-    return Response.json({ text, raw: data });
+    return Response.json({ text, raw: data, provider: 'openrouter', usedKeyType });
   } catch (e: unknown) {
     const isAbort = e instanceof Error && e.name === 'AbortError';
     const message = isAbort

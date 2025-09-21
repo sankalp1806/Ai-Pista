@@ -205,7 +205,7 @@ export async function POST(req: NextRequest) {
     const stream = new ReadableStream<Uint8Array>({
       start(controller) {
         // Send a small meta event
-        controller.enqueue(encoder.encode(sseEncode({ provider: 'openrouter', usedKeyType })));
+        controller.enqueue(encoder.encode(sseEncode({ meta: { provider: 'openrouter', usedKeyType } })));
 
         const push = async (): Promise<void> => {
           try {
